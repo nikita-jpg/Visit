@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
     android:id="@+id/fragment_create"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,6 +30,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_photo_view"
         app:startIconDrawable="@drawable/contact_icon">
+
+
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,5 +75,26 @@
         app:layout_constraintVertical_bias="0.033"
         app:rounded_radius="50" />
 
+    <Button
+        android:id="@+id/btn_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Контакты"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postCreate" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/forDarkBack"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAbsBlack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <include layout="@layout/bootom_sheet"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

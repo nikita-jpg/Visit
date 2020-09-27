@@ -11,7 +11,7 @@
         <item name="boxStrokeColor">@color/colorRed</item>
         <item name="hintTextColor">@color/colorRed</item>
         <item name="android:textColorHint">@color/colorRed</item>
-        <item name="boxBackgroundColor">@color/colorWhite</item>
+        <item name="boxBackgroundColor">@color/colorTransparent</item>
     </style>
 
     <style name="MyCounterText" parent="TextAppearance.AppCompat.Small">

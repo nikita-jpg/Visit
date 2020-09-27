@@ -2,20 +2,27 @@ package com.example.visit;
 
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.example.visit.Cache.CacheManager;
+import com.example.visit.list.additionalInf.Contacts;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.textfield.TextInputLayout;
 import com.jackandphantom.circularimageview.RoundedImage;
 
@@ -28,11 +35,14 @@ import static android.content.ContentValues.TAG;
 public class CreateFragment extends Fragment {
 
     View rootView;
-    Button saveBtn;
+    Button btnSave, btnContact;
+    BottomSheetBehavior bottomSheetBehavior;
     TextInputLayout name,number,address;
     CacheManager cacheManager;
     String currentImage = null;
-    RoundedImage roundedImage ;
+    RoundedImage avatar;
+    Contacts contacts;
+    FrameLayout darkBack;
     private final int PICK_IMAGE = 1;
 
     CreateFragment(CacheManager cacheManager){
@@ -53,13 +63,25 @@ public class CreateFragment extends Fragment {
 
     private void initialization()
     {
+
+        //Инициализация объектов UI
         name  = rootView.findViewById(R.id.nameCreate);
         number = rootView.findViewById(R.id.postCreate);
         address = rootView.findViewById(R.id.emailShow);
-        roundedImage = rootView.findViewById(R.id.add_photo_view);
+        avatar = rootView.findViewById(R.id.add_photo_view);
+        bottomSheetBehavior = BottomSheetBehavior.from(rootView.findViewById(R.id.bottom_sheet));
+        darkBack = rootView.findViewById(R.id.forDarkBack);
+        darkBack.setAlpha(0.5f);
+        darkBack.setVisibility(View.GONE);
 
-        saveBtn = rootView.findViewById(R.id.save_button);
-        saveBtn.setOnClickListener(new View.OnClickListener() {
+        //Инициализация additionalInf
+        contacts = new Contacts();
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .add(R.id.bottom_sheet, contacts)
+                .commit();
+
+        btnSave = rootView.findViewById(R.id.save_button);
+        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nameStr = name.getEditText().getText().toString();
@@ -71,17 +93,38 @@ public class CreateFragment extends Fragment {
             }
         });
 
-        roundedImage.setOnClickListener(new View.OnClickListener() {
+
+        avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Вызываем стандартную галерею для выбора изображения с помощью Intent.ACTION_OPEN_DOCUMENT:
                 Intent photoPickerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                //Тип получаемых объектов - image:
                 photoPickerIntent.setType("image/*");
-                //Запускаем переход с ожиданием обратного результата в виде информации об изображении:
                 startActivityForResult(photoPickerIntent, PICK_IMAGE);
             }
         });
+
+
+        btnContact = rootView.findViewById(R.id.btn_contact);
+        btnContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                darkBack.setVisibility(View.VISIBLE);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+                if(slideOffset == 0)
+                    darkBack.setVisibility(View.GONE);
+
+            }
+        });
+
     }
 
 
@@ -107,7 +150,7 @@ public class CreateFragment extends Fragment {
                     //Грузим фотку
                     ContentResolver cr = getContext().getContentResolver();
                     try {
-                        roundedImage.setImageBitmap(android.provider.MediaStore.Images.Media.getBitmap(cr,uri ));
+                        avatar.setImageBitmap(android.provider.MediaStore.Images.Media.getBitmap(cr,uri ));
                     } catch (IOException e) {
                         Toast.makeText(getContext(), "Ошибка загрузки", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "Ошибка загрузки", e);
