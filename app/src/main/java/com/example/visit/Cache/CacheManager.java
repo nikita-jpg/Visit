@@ -17,6 +17,7 @@ import java.util.List;
 
 public class CacheManager
 {
+    private static final int versionBd = 1;
     private TextDb textDb;
     private TextElementDao textElementDao;
     private Context context;
@@ -63,7 +64,7 @@ public class CacheManager
 
 
                     //Текстовая Бд
-    @Database(entities =  {Person.class}, version = 1,exportSchema = false)
+    @Database(entities =  {Person.class}, version = versionBd,exportSchema = false)
     public abstract static class TextDb extends RoomDatabase
     {
         public abstract TextElementDao textElementDao();

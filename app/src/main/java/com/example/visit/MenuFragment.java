@@ -11,12 +11,19 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.visit.Cache.CacheManager;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MenuFragment extends Fragment {
 
     RecyclerView rootView;
+    CacheManager cacheManager;
+
+    MenuFragment(CacheManager cacheManager){
+        this.cacheManager = cacheManager;
+    }
 
     @Nullable
     @Override
@@ -27,10 +34,7 @@ public class MenuFragment extends Fragment {
         linearLayoutManager.setInitialPrefetchItemCount(2);
         rootView.setLayoutManager(linearLayoutManager);
 
-        List<Person> persons = new ArrayList<>();
-        persons.add(new Person("Emma Wilson", "23 years old", 0));
-        persons.add(new Person("Lavery Maiss", "25 years old", 0));
-        persons.add(new Person("Lillie Watts", "35 years old", 0));
+        List<Person> persons = cacheManager.getAllText();;
         RVAdapter rvAdapter = new RVAdapter(persons);
         rootView.setAdapter(rvAdapter);
 

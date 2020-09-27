@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.visit.Cache.CacheManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,12 +27,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final MenuFragment menuFragment = new MenuFragment();
+        CacheManager cacheManager = new CacheManager(getApplicationContext());
+
+
+        final MenuFragment menuFragment = new MenuFragment(cacheManager);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, menuFragment)
                 .commit();
 
-        final CreateFragment createFragment = new CreateFragment();
+        final CreateFragment createFragment = new CreateFragment(cacheManager);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, createFragment)
                 .commit();
