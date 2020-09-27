@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         final View menuFragment = findViewById(R.id.listFragment);
         final View createFragment = findViewById(R.id.createFragment);
+        createFragment.setVisibility(View.GONE);
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)

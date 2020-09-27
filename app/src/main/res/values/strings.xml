@@ -3,4 +3,11 @@
     <string name="view_user">Просмотр</string>
     <string name="menu">Люди</string>
     <string name="create_person">Создвть профиль</string>
+
+    //Профиль
+    <string name="name">ФИО</string>
+    <string name="number">Телефон</string>
+    <string name="address">Отчество</string>
+    <string name="profession">Проффессия</string>
+    <string name="email">email</string>
 </resources>
