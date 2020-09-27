@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,25 +7,63 @@
     android:background="@color/colorTransparent">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/nameCreate"
+        android:id="@+id/createVK"
+        style="@style/TextLabel"
+        android:layout_width="300dp"
+        android:layout_height="59dp"
+        android:hint="@string/vk"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/contact_icon">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/createEmail"
         style="@style/TextLabel"
         android:layout_width="300dp"
         android:layout_height="59dp"
         android:layout_marginTop="24dp"
-        android:hint="@string/name"
+        android:hint="@string/email"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createNumber"
+        app:startIconDrawable="@drawable/post_icon">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/createDiscord"
+        style="@style/TextLabel"
+        android:layout_width="300dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="24dp"
+        android:hint="@string/discord"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_photo_view"
-        app:startIconDrawable="@drawable/contact_icon">
+        app:layout_constraintTop_toBottomOf="@+id/createEmail"
+        app:startIconDrawable="@drawable/post_icon">
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/postCreate"
+        android:id="@+id/createNumber"
         style="@style/TextLabel"
         android:layout_width="300dp"
         android:layout_height="59dp"
@@ -36,13 +73,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameCreate"
+        app:layout_constraintTop_toBottomOf="@+id/createVK"
         app:startIconDrawable="@drawable/post_icon">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createDiscord" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

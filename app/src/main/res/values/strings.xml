@@ -3,12 +3,15 @@
     <string name="view_user">Просмотр</string>
     <string name="menu">Люди</string>
     <string name="create_person">Создвть профиль</string>
+    <string name="save">Сохранить</string>
 
     //Профиль
     <string name="name">ФИО</string>
-    <string name="number">Телефон</string>
-    <string name="address">Адрес</string>
     <string name="profession">Проффессия</string>
+
+    //Контакты
     <string name="email">email</string>
-    <string name="age">Возраст</string>
+    <string name="vk">VK</string>
+    <string name="discord">discord</string>
+    <string name="number">number</string>
 </resources>

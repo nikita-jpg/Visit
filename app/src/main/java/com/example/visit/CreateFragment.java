@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -72,6 +73,12 @@ public class CreateFragment extends Fragment {
         bottomSheetBehavior = BottomSheetBehavior.from(rootView.findViewById(R.id.bottom_sheet));
         darkBack = rootView.findViewById(R.id.forDarkBack);
         darkBack.setAlpha(0.5f);
+        darkBack.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
         darkBack.setVisibility(View.GONE);
 
         //Инициализация additionalInf
@@ -109,7 +116,8 @@ public class CreateFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 darkBack.setVisibility(View.VISIBLE);
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
+
             }
         });
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
