@@ -7,7 +7,7 @@
     //Профиль
     <string name="name">ФИО</string>
     <string name="number">Телефон</string>
-    <string name="address">Отчество</string>
+    <string name="address">Адрес</string>
     <string name="profession">Проффессия</string>
     <string name="email">email</string>
 </resources>
