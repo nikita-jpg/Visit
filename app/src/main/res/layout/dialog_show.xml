@@ -15,7 +15,6 @@
         android:layout_width="300dp"
         android:layout_height="59dp"
         android:hint="@string/name"
-        app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -25,7 +24,7 @@
         app:layout_constraintVertical_chainStyle="packed"
         app:startIconDrawable="@drawable/contact_icon">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"/>
@@ -39,7 +38,6 @@
         android:layout_height="59dp"
         android:layout_marginTop="12dp"
         android:hint="@string/number"
-        app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +58,6 @@
         android:layout_height="59dp"
         android:layout_marginTop="12dp"
         android:hint="@string/email"
-        app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,6 +83,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.026"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/editBtnShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Редактировать"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailShow" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -47,7 +47,7 @@ public class CreateFragment extends Fragment {
     private void initialization()
     {
         name  = rootView.findViewById(R.id.nameCreate);
-        number = rootView.findViewById(R.id.numberCreate);
+        number = rootView.findViewById(R.id.postCreate);
         address = rootView.findViewById(R.id.emailShow);
 
         saveBtn = rootView.findViewById(R.id.save_button);

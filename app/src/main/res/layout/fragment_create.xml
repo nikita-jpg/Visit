@@ -5,13 +5,12 @@
     android:id="@+id/fragment_create"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="vertical"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:scrollbars="vertical">
 
-    //ФИО
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nameCreate"
-        app:startIconDrawable="@drawable/contact_icon"
         style="@style/TextLabel"
         android:layout_width="300dp"
         android:layout_height="59dp"
@@ -19,57 +18,29 @@
         app:endIconMode="clear_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023"
-        app:layout_constraintVertical_chainStyle="packed">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:inputType="text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        app:layout_constraintVertical_bias="0.191"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:startIconDrawable="@drawable/contact_icon">
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    //Номер
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/numberCreate"
-        app:startIconDrawable="@drawable/number_icon"
+        android:id="@+id/postCreate"
         style="@style/TextLabel"
         android:layout_width="300dp"
         android:layout_height="59dp"
+        android:layout_marginTop="24dp"
         android:hint="@string/number"
         app:endIconMode="clear_text"
-        app:layout_constraintBottom_toTopOf="@+id/emailShow"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameCreate">
+        app:layout_constraintTop_toBottomOf="@+id/nameCreate"
+        app:startIconDrawable="@drawable/number_icon">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    //email
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailShow"
-        style="@style/TextLabel"
-        android:layout_width="300dp"
-        android:layout_height="59dp"
-        android:hint="@string/email"
-        app:endIconMode="clear_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.255"
-        app:startIconDrawable="@drawable/email_icon">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -81,21 +52,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.808"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailShow"
-        app:layout_constraintVertical_bias="0.501" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/addImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Добавить фото"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/save_button"
-        app:layout_constraintHorizontal_bias="0.71"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/save_button"
-        app:layout_constraintVertical_bias="0.008" />
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="304dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
