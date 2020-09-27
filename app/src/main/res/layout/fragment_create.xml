@@ -5,6 +5,7 @@
     android:id="@+id/fragment_create"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="vertical"
     android:background="#FFFFFF">
 
     //ФИО
@@ -39,13 +40,12 @@
         android:layout_height="59dp"
         android:hint="@string/number"
         app:endIconMode="clear_text"
-        app:layout_constraintBottom_toTopOf="@+id/Create"
+        app:layout_constraintBottom_toTopOf="@+id/emailShow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameCreate">
 
         <com.google.android.material.textfield.TextInputEditText
-            style="@style/Platform.MaterialComponents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"/>
@@ -53,9 +53,8 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     //email
-
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Create"
+        android:id="@+id/emailShow"
         style="@style/TextLabel"
         android:layout_width="300dp"
         android:layout_height="59dp"
@@ -83,7 +82,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.808"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Create"
+        app:layout_constraintTop_toBottomOf="@+id/emailShow"
         app:layout_constraintVertical_bias="0.501" />
 
     <Button

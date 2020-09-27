@@ -57,14 +57,14 @@ class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PersonViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final PersonViewHolder holder, final int position) {
         holder.personName.setText(persons.get(position).getName());
 
         //Кнопка "Посмотреть"
         holder.show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddDialogFragment addDialogFragment = new AddDialogFragment(context);
+                AddDialogFragment addDialogFragment = new AddDialogFragment(context,persons.get(position));
                 addDialogFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
             }
         });

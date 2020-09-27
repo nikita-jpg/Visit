@@ -48,7 +48,7 @@ public class CreateFragment extends Fragment {
     {
         name  = rootView.findViewById(R.id.nameCreate);
         number = rootView.findViewById(R.id.numberCreate);
-        address = rootView.findViewById(R.id.Create);
+        address = rootView.findViewById(R.id.emailShow);
 
         saveBtn = rootView.findViewById(R.id.save_button);
         saveBtn.setOnClickListener(new View.OnClickListener() {
