@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources >
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="colorRed">#ad001c</color>
+    <color name="colorRed">#AD001C</color>
+    <color name="colorBlue">#117FAD</color>
+    <color name="bgBottomNavigation">#fe485a</color>
+    <color name="colorBlack">#2a2e2d</color>
 </resources>
+
+
+
