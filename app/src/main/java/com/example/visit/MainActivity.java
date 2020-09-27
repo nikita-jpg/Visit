@@ -3,21 +3,13 @@ package com.example.visit;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 
-import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.example.visit.Cache.CacheManager;
+import com.example.visit.list.ListFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         CacheManager cacheManager = new CacheManager(getApplicationContext());
 
 
-        final MenuFragment menuFragment = new MenuFragment(cacheManager);
+        final ListFragment listFragment = new ListFragment(cacheManager);
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, menuFragment)
+                .add(R.id.container, listFragment)
                 .commit();
 
         final CreateFragment createFragment = new CreateFragment(cacheManager);
@@ -47,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId() == R.id.action_menu)
                 {
-                    menuFragment.Visible();
+                    listFragment.Visible();
                     createFragment.Gone();
                 }
 
                 else
                 {
-                    menuFragment.Gone();
+                    listFragment.Gone();
                     createFragment.Visible();
                 }
                 return true;

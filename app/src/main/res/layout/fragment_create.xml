@@ -9,16 +9,13 @@
 
     //ФИО
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/name"
+        android:id="@+id/nameCreate"
         app:startIconDrawable="@drawable/contact_icon"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/TextLabel"
         android:layout_width="300dp"
         android:layout_height="59dp"
         android:hint="@string/name"
         app:endIconMode="clear_text"
-        android:textColorHint="@color/colorRed"
-        app:boxStrokeColor="@color/colorRed"
-        app:hintTextColor="@color/colorRed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,20 +32,17 @@
 
     //Номер
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/number"
+        android:id="@+id/numberCreate"
         app:startIconDrawable="@drawable/number_icon"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/TextLabel"
         android:layout_width="300dp"
         android:layout_height="59dp"
         android:hint="@string/number"
         app:endIconMode="clear_text"
-        android:textColorHint="@color/colorRed"
-        app:boxStrokeColor="@color/colorRed"
-        app:hintTextColor="@color/colorRed"
-        app:layout_constraintBottom_toTopOf="@+id/address"
+        app:layout_constraintBottom_toTopOf="@+id/Create"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name">
+        app:layout_constraintTop_toBottomOf="@+id/nameCreate">
 
         <com.google.android.material.textfield.TextInputEditText
             style="@style/Platform.MaterialComponents"
@@ -59,22 +53,20 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     //email
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/address"
-        app:startIconDrawable="@drawable/email_icon"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/Create"
+        style="@style/TextLabel"
         android:layout_width="300dp"
         android:layout_height="59dp"
         android:hint="@string/email"
         app:endIconMode="clear_text"
-        android:textColorHint="@color/colorRed"
-        app:boxStrokeColor="@color/colorRed"
-        app:hintTextColor="@color/colorRed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.255">
+        app:layout_constraintVertical_bias="0.255"
+        app:startIconDrawable="@drawable/email_icon">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -89,9 +81,22 @@
         android:text="Сохранить"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.808"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address" />
+        app:layout_constraintTop_toBottomOf="@+id/Create"
+        app:layout_constraintVertical_bias="0.501" />
 
+    <Button
+        android:id="@+id/addImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Добавить фото"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/save_button"
+        app:layout_constraintHorizontal_bias="0.71"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/save_button"
+        app:layout_constraintVertical_bias="0.008" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

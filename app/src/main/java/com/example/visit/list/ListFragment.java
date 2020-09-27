@@ -1,4 +1,4 @@
-package com.example.visit;
+package com.example.visit.list;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,16 +12,19 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.visit.Cache.CacheManager;
+import com.example.visit.Person;
+import com.example.visit.R;
+import com.example.visit.list.RVAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuFragment extends Fragment {
+public class ListFragment extends Fragment {
 
     RecyclerView rootView;
     CacheManager cacheManager;
 
-    MenuFragment(CacheManager cacheManager){
+    public ListFragment(CacheManager cacheManager){
         this.cacheManager = cacheManager;
     }
 
@@ -35,7 +38,7 @@ public class MenuFragment extends Fragment {
         rootView.setLayoutManager(linearLayoutManager);
 
         List<Person> persons = cacheManager.getAllText();;
-        RVAdapter rvAdapter = new RVAdapter(persons);
+        RVAdapter rvAdapter = new RVAdapter(persons,getContext());
         rootView.setAdapter(rvAdapter);
 
         return rootView;

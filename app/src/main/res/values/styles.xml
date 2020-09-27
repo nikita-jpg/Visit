@@ -7,13 +7,11 @@
     </style>
 
 
-    <style name="TextLabel" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
-        <item name="colorControlNormal">@color/colorRed</item>
-        <item name="colorControlActivated">@color/colorRed</item>
-        <item name="colorControlHighlight">@color/colorRed</item>
-        <item name="colorPrimary">@color/colorRed</item>
-        <item name="colorPrimaryDark">@color/colorRed</item>
-        <item name="colorAccent">@color/colorRed</item>
+    <style name="TextLabel" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/colorRed</item>
+        <item name="hintTextColor">@color/colorRed</item>
+        <item name="android:textColorHint">@color/colorRed</item>
+        <item name="boxBackgroundColor">@color/colorWhite</item>
     </style>
 
     <style name="MyCounterText" parent="TextAppearance.AppCompat.Small">
