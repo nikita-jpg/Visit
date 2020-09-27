@@ -1,12 +1,15 @@
 package com.example.visit;
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,17 +17,22 @@ import androidx.fragment.app.Fragment;
 
 import com.example.visit.Cache.CacheManager;
 import com.google.android.material.textfield.TextInputLayout;
+import com.jackandphantom.circularimageview.RoundedImage;
+
+import java.io.IOException;
 
 import static android.app.Activity.RESULT_OK;
+import static android.content.ContentValues.TAG;
 
 
 public class CreateFragment extends Fragment {
 
     View rootView;
-    Button saveBtn,addPhotoBtn;
+    Button saveBtn;
     TextInputLayout name,number,address;
     CacheManager cacheManager;
     String currentImage = null;
+    RoundedImage roundedImage ;
     private final int PICK_IMAGE = 1;
 
     CreateFragment(CacheManager cacheManager){
@@ -38,7 +46,6 @@ public class CreateFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_create,container,false);
         rootView.setVisibility(View.GONE);
 
-
         initialization();
 
         return rootView;
@@ -49,6 +56,7 @@ public class CreateFragment extends Fragment {
         name  = rootView.findViewById(R.id.nameCreate);
         number = rootView.findViewById(R.id.postCreate);
         address = rootView.findViewById(R.id.emailShow);
+        roundedImage = rootView.findViewById(R.id.add_photo_view);
 
         saveBtn = rootView.findViewById(R.id.save_button);
         saveBtn.setOnClickListener(new View.OnClickListener() {
@@ -63,8 +71,7 @@ public class CreateFragment extends Fragment {
             }
         });
 
-        addPhotoBtn = rootView.findViewById(R.id.addImage);
-        addPhotoBtn.setOnClickListener(new View.OnClickListener() {
+        roundedImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Вызываем стандартную галерею для выбора изображения с помощью Intent.ACTION_OPEN_DOCUMENT:
@@ -96,6 +103,15 @@ public class CreateFragment extends Fragment {
                 if(resultCode == RESULT_OK){
                     Uri uri = imageReturnedIntent.getData();
                     currentImage = String.valueOf(uri);
+
+                    //Грузим фотку
+                    ContentResolver cr = getContext().getContentResolver();
+                    try {
+                        roundedImage.setImageBitmap(android.provider.MediaStore.Images.Media.getBitmap(cr,uri ));
+                    } catch (IOException e) {
+                        Toast.makeText(getContext(), "Ошибка загрузки", Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "Ошибка загрузки", e);
+                    }
                 }
         }}
 }
