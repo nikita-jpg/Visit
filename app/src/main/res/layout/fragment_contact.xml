@@ -10,8 +10,9 @@
         android:id="@+id/createVK"
         style="@style/TextLabel"
         android:layout_width="300dp"
-        android:layout_height="59dp"
+        android:layout_height="wrap_content"
         android:hint="@string/vk"
+        app:prefixText="@string/prefVK"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -19,9 +20,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:startIconDrawable="@drawable/contact_icon">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/createNumber"
+        style="@style/TextLabel"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/number"
+        android:inputType="phone"
+        app:counterEnabled="true"
+        app:counterMaxLength="11"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createVK"
+        app:startIconDrawable="@drawable/post_icon">
+
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -30,16 +53,17 @@
         style="@style/TextLabel"
         android:layout_width="300dp"
         android:layout_height="59dp"
-        android:layout_marginTop="24dp"
         android:hint="@string/email"
+        android:inputType="textEmailAddress"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createNumber"
         app:startIconDrawable="@drawable/post_icon">
+
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -48,44 +72,26 @@
         style="@style/TextLabel"
         android:layout_width="300dp"
         android:layout_height="59dp"
-        android:layout_marginTop="24dp"
         android:hint="@string/discord"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createEmail"
         app:startIconDrawable="@drawable/post_icon">
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/createNumber"
-        style="@style/TextLabel"
-        android:layout_width="300dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="24dp"
-        android:hint="@string/number"
-        app:endIconMode="clear_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createVK"
-        app:startIconDrawable="@drawable/post_icon">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/createBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        style="@style/styleBtn"
         android:text="@string/save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

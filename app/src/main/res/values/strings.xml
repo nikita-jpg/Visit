@@ -5,6 +5,7 @@
     <string name="create_person">Создвть профиль</string>
     <string name="save">Сохранить</string>
 
+
     //Профиль
     <string name="name">ФИО</string>
     <string name="profession">Проффессия</string>
@@ -14,4 +15,12 @@
     <string name="vk">VK</string>
     <string name="discord">discord</string>
     <string name="number">number</string>
+
+    //Ошибки
+    <string name="exceptionContact">Выошиблись или не заполнили все поля в разделе контакты</string>
+    <string name="expAvatar">Вы не добавили фото</string>
+
+    //Префиксы
+    <string name="prefVK">https://vk.com/</string>
+
 </resources>

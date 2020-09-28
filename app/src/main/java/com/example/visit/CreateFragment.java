@@ -2,10 +2,7 @@ package com.example.visit;
 
 import android.content.ContentResolver;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +15,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.example.visit.Cache.CacheManager;
@@ -38,7 +34,7 @@ public class CreateFragment extends Fragment {
     View rootView;
     Button btnSave, btnContact;
     BottomSheetBehavior bottomSheetBehavior;
-    TextInputLayout name,number,address;
+    TextInputLayout name, post,address;
     CacheManager cacheManager;
     String currentImage = null;
     RoundedImage avatar;
@@ -67,7 +63,7 @@ public class CreateFragment extends Fragment {
 
         //Инициализация объектов UI
         name  = rootView.findViewById(R.id.nameCreate);
-        number = rootView.findViewById(R.id.postCreate);
+        post = rootView.findViewById(R.id.postCreate);
         address = rootView.findViewById(R.id.emailShow);
         avatar = rootView.findViewById(R.id.add_photo_view);
         bottomSheetBehavior = BottomSheetBehavior.from(rootView.findViewById(R.id.bottom_sheet));
@@ -91,12 +87,7 @@ public class CreateFragment extends Fragment {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nameStr = name.getEditText().getText().toString();
-                String addressStr = address.getEditText().getText().toString();
-                String numberStr = number.getEditText().getText().toString();
-                Person person = new Person(nameStr,addressStr,numberStr,currentImage);
-
-                cacheManager.addPerson(person);
+                save();
             }
         });
 
@@ -116,7 +107,7 @@ public class CreateFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 darkBack.setVisibility(View.VISIBLE);
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
 
             }
         });
@@ -135,6 +126,25 @@ public class CreateFragment extends Fragment {
 
     }
 
+    //Добавить проверку на поля
+    private void save()
+    {
+        if(!contacts.check()) {
+            Toast.makeText(getActivity().getApplicationContext(),getString(R.string.exceptionContact),Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        Person person = new Person(
+                name.getEditText().getText().toString(),
+                post.getEditText().getText().toString(),
+                currentImage,
+                contacts.getEmail(),
+                contacts.getVK(),
+                contacts.getNumber(),
+                contacts.getDiscord());
+
+        cacheManager.addPerson(person);
+    }
 
     public void Gone()
     {
