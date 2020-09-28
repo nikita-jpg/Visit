@@ -24,7 +24,7 @@ import java.util.Map;
 
 public class Contacts extends Fragment {
 
-    private TextInputLayout vkId,number,discord,email;
+    private TextInputLayout vkId,number,discord,email,git;
     private HashMap<String,String> map = new HashMap<>();
     private Button btnSave;
     private Check check;
@@ -45,6 +45,7 @@ public class Contacts extends Fragment {
         discord = rootView.findViewById(R.id.createDiscord);
         email = rootView.findViewById(R.id.createEmail);
         btnSave = rootView.findViewById(R.id.createBtn);
+        git = rootView.findViewById(R.id.createGit);
 
         check = new Check(getContext());
 
@@ -52,11 +53,12 @@ public class Contacts extends Fragment {
         map.put("email","");
         map.put("discord","");
         map.put("number","");
+        map.put("git","");
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(check.checkContact(map, vkId,number,discord,email))
+                if(check.checkContact(map, vkId,number,discord,email,git))
                 {
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                     Toast.makeText(getContext(),getString(R.string.saved),Toast.LENGTH_SHORT).show();

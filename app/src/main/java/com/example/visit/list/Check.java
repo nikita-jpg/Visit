@@ -30,7 +30,7 @@ public class Check {
 
 
 
-    public boolean checkContact(HashMap map,TextInputLayout vk, TextInputLayout number, TextInputLayout discord, TextInputLayout email)
+    public boolean checkContact(HashMap map,TextInputLayout vk, TextInputLayout number, TextInputLayout discord, TextInputLayout email,TextInputLayout git)
     {
         String current = vk.getEditText().getText().toString();
         if (current== null || current.length()<5)
@@ -66,6 +66,15 @@ public class Check {
             return false;
         }
         map.put("discord",discord.getEditText().getText().toString());
+
+        current = git.getEditText().getText().toString();
+        if (current== null || current.length()<5)
+        {
+            Toast.makeText(context,context.getString(R.string.expGit),Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        map.put("git",current);
+
         return true;
     }
 

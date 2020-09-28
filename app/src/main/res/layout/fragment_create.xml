@@ -69,8 +69,8 @@
 
     <com.jackandphantom.circularimageview.RoundedImage
         android:id="@+id/add_photo_view"
-        android:layout_width="243dp"
-        android:layout_height="261dp"
+        android:layout_width="255dp"
+        android:layout_height="298dp"
         android:src="@drawable/add_photo_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +92,6 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <FrameLayout
         android:id="@+id/forDarkBack"
         android:layout_width="match_parent"
@@ -104,6 +103,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <include layout="@layout/bootom_sheet"/>
+
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

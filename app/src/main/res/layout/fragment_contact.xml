@@ -91,17 +91,35 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/createGit"
+        style="@style/TextLabel"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/git"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createDiscord"
+        app:prefixText="@string/prefGit"
+        app:startIconDrawable="@drawable/contact_icon">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/createBtn"
+        style="@style/styleBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        style="@style/styleBtn"
+        android:layout_marginTop="28dp"
         android:text="@string/save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createDiscord" />
+        app:layout_constraintTop_toBottomOf="@+id/createGit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
