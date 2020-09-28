@@ -44,7 +44,8 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:inputType="phone"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,7 +64,8 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

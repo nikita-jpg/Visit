@@ -19,6 +19,10 @@
     //Ошибки
     <string name="exceptionContact">Выошиблись или не заполнили все поля в разделе контакты</string>
     <string name="expAvatar">Вы не добавили фото</string>
+    <string name="expVK">Вы указали неправильный id пользователя вк</string>
+    <string name="expEmail">Вы указали неправильный email</string>
+    <string name="expNumber">Вы указали неверный номер телефона</string>
+    <string name="expDiscord">Вы указали неверный ник в дискорде</string>
 
     //Префиксы
     <string name="prefVK">https://vk.com/</string>
