@@ -1,6 +1,7 @@
 package com.example.visit;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.visit.Cache.CacheManager;
+import com.example.visit.list.Check;
 import com.example.visit.list.additionalInf.Contacts;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.textfield.TextInputLayout;
@@ -39,6 +42,7 @@ public class CreateFragment extends Fragment {
     String currentImage = null;
     RoundedImage avatar;
     Contacts contacts;
+    Check check;
     FrameLayout darkBack;
     private final int PICK_IMAGE = 1;
 
@@ -77,8 +81,10 @@ public class CreateFragment extends Fragment {
         });
         darkBack.setVisibility(View.GONE);
 
+        check = new Check(getContext());
+
         //Инициализация additionalInf
-        contacts = new Contacts();
+        contacts = new Contacts(bottomSheetBehavior);
         getActivity().getSupportFragmentManager().beginTransaction()
                 .add(R.id.bottom_sheet, contacts)
                 .commit();
@@ -118,8 +124,11 @@ public class CreateFragment extends Fragment {
 
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                if(slideOffset == 0)
+                if(slideOffset == 0) {
                     darkBack.setVisibility(View.GONE);
+                    InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                }
 
             }
         });
@@ -129,6 +138,8 @@ public class CreateFragment extends Fragment {
     //Добавить проверку на поля
     private void save()
     {
+
+
         if(!contacts.check()) {
             Toast.makeText(getActivity().getApplicationContext(),getString(R.string.exceptionContact),Toast.LENGTH_LONG).show();
             return;
@@ -139,7 +150,7 @@ public class CreateFragment extends Fragment {
                 post.getEditText().getText().toString(),
                 currentImage,
                 contacts.getEmail(),
-                contacts.getVK(),
+                contacts.getVKId(),
                 contacts.getNumber(),
                 contacts.getDiscord());
 

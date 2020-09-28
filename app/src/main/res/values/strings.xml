@@ -4,6 +4,7 @@
     <string name="menu">Люди</string>
     <string name="create_person">Создвть профиль</string>
     <string name="save">Сохранить</string>
+    <string name="saved">Сохранено</string>
 
 
     //Профиль
@@ -23,6 +24,7 @@
     <string name="expEmail">Вы указали неправильный email</string>
     <string name="expNumber">Вы указали неверный номер телефона</string>
     <string name="expDiscord">Вы указали неверный ник в дискорде</string>
+    <string name="expName">Вы указали неверное имя</string>
 
     //Префиксы
     <string name="prefVK">https://vk.com/</string>

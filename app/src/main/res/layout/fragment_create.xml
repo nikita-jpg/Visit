@@ -31,8 +31,9 @@
         app:layout_constraintTop_toBottomOf="@+id/add_photo_view"
         app:startIconDrawable="@drawable/contact_icon">
 
-
-
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -41,7 +42,7 @@
         android:layout_width="300dp"
         android:layout_height="59dp"
         android:layout_marginTop="24dp"
-        android:hint="@string/number"
+        android:hint="@string/profession"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -49,7 +50,9 @@
         app:layout_constraintTop_toBottomOf="@+id/nameCreate"
         app:startIconDrawable="@drawable/post_icon">
 
-
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -89,6 +92,7 @@
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <FrameLayout
         android:id="@+id/forDarkBack"
         android:layout_width="match_parent"
@@ -100,5 +104,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <include layout="@layout/bootom_sheet"/>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

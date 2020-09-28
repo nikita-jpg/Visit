@@ -32,7 +32,6 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/number"
-        android:inputType="phone"
         app:counterEnabled="true"
         app:counterMaxLength="11"
         app:endIconMode="clear_text"
@@ -73,7 +72,11 @@
         android:id="@+id/createDiscord"
         style="@style/TextLabel"
         android:layout_width="300dp"
-        android:layout_height="59dp"
+        android:layout_height="wrap_content"
+        app:prefixText="#"
+        app:counterEnabled="true"
+        app:counterMaxLength="4"
+        app:errorEnabled="true"
         android:hint="@string/discord"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +86,8 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:inputType="phone"/>
     </com.google.android.material.textfield.TextInputLayout>
 
 
