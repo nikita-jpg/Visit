@@ -12,13 +12,13 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/vk"
-        app:prefixText="@string/prefVK"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/contact_icon">
+        app:prefixText="@string/prefVK"
+        app:startIconDrawable="@drawable/vk_icon_logo">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -39,12 +39,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createVK"
-        app:startIconDrawable="@drawable/post_icon">
+        app:startIconDrawable="@drawable/phone_number_icon">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="phone"/>
+            android:inputType="phone" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createNumber"
-        app:startIconDrawable="@drawable/post_icon">
+        app:startIconDrawable="@drawable/email_icon">
 
         <EditText
             android:layout_width="match_parent"
@@ -73,21 +73,21 @@
         style="@style/TextLabel"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        app:prefixText="#"
+        android:hint="@string/discord"
         app:counterEnabled="true"
         app:counterMaxLength="4"
-        app:errorEnabled="true"
-        android:hint="@string/discord"
         app:endIconMode="clear_text"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createEmail"
-        app:startIconDrawable="@drawable/post_icon">
+        app:prefixText="#"
+        app:startIconDrawable="@drawable/discord_icon">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="phone"/>
+            android:inputType="phone" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -103,10 +103,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createDiscord"
         app:prefixText="@string/prefGit"
-        app:startIconDrawable="@drawable/contact_icon">
+        app:startIconDrawable="@drawable/github_icon_logo">
+
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

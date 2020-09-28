@@ -9,7 +9,7 @@
 
     //Профиль
     <string name="name">ФИО</string>
-    <string name="profession">Проффессия</string>
+    <string name="profession">Профессия</string>
 
     //Контакты
     <string name="email">email</string>
