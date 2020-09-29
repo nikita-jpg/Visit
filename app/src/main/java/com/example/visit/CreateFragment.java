@@ -114,8 +114,6 @@ public class CreateFragment extends Fragment {
             public void onClick(View v) {
                 darkBack.setVisibility(View.VISIBLE);
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-                avatar.setAlpha(0.1f);
-                avatar.setClickable(false);
 
             }
         });
@@ -128,8 +126,6 @@ public class CreateFragment extends Fragment {
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
                 if(slideOffset == 0) {
                     darkBack.setVisibility(View.GONE);
-                    avatar.setAlpha(1f);
-                    avatar.setClickable(true);
                     //InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                     //imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
                 }

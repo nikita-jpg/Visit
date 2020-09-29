@@ -17,17 +17,6 @@
         android:scrollbars="vertical">
 
 
-        <FrameLayout
-            android:id="@+id/forDarkBack"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorAbsBlack"
-            android:clickable="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/nameCreate"
             style="@style/TextLabel"
@@ -103,6 +92,15 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <include layout="@layout/bootom_sheet"/>
+    <FrameLayout
+        android:id="@+id/forDarkBack"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAbsBlack"
+        android:clickable="false" >
+
+    </FrameLayout>
+
+    <include layout="@layout/bootom_sheet" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
