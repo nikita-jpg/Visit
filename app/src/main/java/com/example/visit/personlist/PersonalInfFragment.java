@@ -1,4 +1,4 @@
-package com.example.visit.list;
+package com.example.visit.personlist;
 
 import android.content.ContentResolver;
 import android.content.Context;

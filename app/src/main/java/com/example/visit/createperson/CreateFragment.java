@@ -1,4 +1,4 @@
-package com.example.visit;
+package com.example.visit.createperson;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -18,6 +18,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.visit.CheckInputInf;
+import com.example.visit.Person;
+import com.example.visit.R;
 import com.example.visit.сache.CacheManager;
 import com.example.visit.createperson.Contacts;
 import com.example.visit.createperson.DescriptionPerson;
