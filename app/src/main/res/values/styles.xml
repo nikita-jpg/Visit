@@ -20,6 +20,14 @@
         <item name="boxBackgroundColor">@color/colorTransparent</item>
     </style>
 
+    <style name="TextLabelTest" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/colorBlue</item>
+        <item name="hintTextColor">@color/colorWhite</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="boxBackgroundColor">@color/colorTransparent</item>
+        <item name="prefixTextColor">@color/colorRed</item>
+    </style>
+
     <style name="MyCounterText" parent="TextAppearance.AppCompat.Small">
         <item name="android:textColor">@android:color/holo_orange_dark</item>
     </style>

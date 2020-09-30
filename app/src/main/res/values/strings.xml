@@ -12,6 +12,13 @@
     <string name="profession">Профессия</string>
 
     //Контакты
+    <string name="email_colon">email:</string>
+    <string name="vk_colon">VK:</string>
+    <string name="discord_colon">discord:</string>
+    <string name="number_colon">number:</string>
+    <string name="git_colon">git:</string>
+
+    //Контакты c двоеточием
     <string name="email">email</string>
     <string name="vk">VK</string>
     <string name="discord">discord</string>

@@ -5,7 +5,7 @@
     android:id="@+id/fragment_create"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@xml/alert_dialog"
+    android:background="@color/colorTransparent"
     android:padding="10dp">
 
 
@@ -21,13 +21,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avatarShow"
         app:layout_constraintVertical_bias="0.039"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:startIconDrawable="@xml/contact_icon">
+        app:layout_constraintVertical_chainStyle="packed">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -41,14 +40,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameShow"
-        app:startIconDrawable="@xml/phone_number_icon">
+        app:layout_constraintTop_toBottomOf="@+id/nameShow">
 
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -61,21 +59,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberShow"
-        app:startIconDrawable="@xml/email_icon">
+        app:layout_constraintTop_toBottomOf="@+id/numberShow">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
-        android:adjustViewBounds="true"
         android:id="@+id/avatarShow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
