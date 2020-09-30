@@ -22,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import com.example.visit.Cache.CacheManager;
 import com.example.visit.list.Check;
 import com.example.visit.list.additionalInf.Contacts;
+import com.example.visit.list.additionalInf.DescriptionPerson;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.textfield.TextInputLayout;
 import com.jackandphantom.circularimageview.RoundedImage;
@@ -35,13 +36,14 @@ import static android.content.ContentValues.TAG;
 public class CreateFragment extends Fragment {
 
     View rootView;
-    Button btnSave, btnContact;
+    Button btnSaveContacts, btnContact, btnDescription, btnSaveDescribe;
     BottomSheetBehavior bottomSheetBehavior;
     TextInputLayout name, post,address;
     CacheManager cacheManager;
     String currentImage = null;
     RoundedImage avatar;
     Contacts contacts;
+    DescriptionPerson description;
     Check check;
     FrameLayout darkBack;
     private final int PICK_IMAGE = 1;
@@ -66,17 +68,20 @@ public class CreateFragment extends Fragment {
     {
 
         //Инициализация объектов UI
+        bottomSheetBehavior = BottomSheetBehavior.from(rootView.findViewById(R.id.bottom_sheet));
         name  = rootView.findViewById(R.id.nameCreate);
         post = rootView.findViewById(R.id.postCreate);
         address = rootView.findViewById(R.id.emailShow);
         avatar = rootView.findViewById(R.id.add_photo_view);
-        bottomSheetBehavior = BottomSheetBehavior.from(rootView.findViewById(R.id.bottom_sheet));
         darkBack = rootView.findViewById(R.id.forDarkBack);
         darkBack.setAlpha(0.5f);
-        darkBack.setOnTouchListener(new View.OnTouchListener() {
+        darkBack.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
+            public void onClick(View view) {
+                int stateOfSheet = bottomSheetBehavior.getState();
+                if (stateOfSheet == BottomSheetBehavior.STATE_EXPANDED) {
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                }
             }
         });
         darkBack.setVisibility(View.GONE);
@@ -89,14 +94,18 @@ public class CreateFragment extends Fragment {
                 .add(R.id.bottom_sheet, contacts)
                 .commit();
 
-        btnSave = rootView.findViewById(R.id.save_button);
-        btnSave.setOnClickListener(new View.OnClickListener() {
+        description = new DescriptionPerson(bottomSheetBehavior);
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .add(R.id.bottom_sheet, description)
+                .commit();
+
+        btnSaveContacts = rootView.findViewById(R.id.save_button);
+        btnSaveContacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 save();
             }
         });
-
 
         avatar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,16 +116,28 @@ public class CreateFragment extends Fragment {
             }
         });
 
-
         btnContact = rootView.findViewById(R.id.btn_contact);
         btnContact.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 darkBack.setVisibility(View.VISIBLE);
+                description.Gone();
+                contacts.Visible();
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-
             }
         });
+
+        btnDescription = rootView.findViewById(R.id.btn_describe);
+        btnDescription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                darkBack.setVisibility(View.VISIBLE);
+                description.Visible();
+                contacts.Gone();
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
+
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
@@ -137,8 +158,6 @@ public class CreateFragment extends Fragment {
     //Добавить проверку на поля
     private void save()
     {
-
-
         if(!contacts.check()) {
             Toast.makeText(getActivity().getApplicationContext(),getString(R.string.exceptionContact),Toast.LENGTH_LONG).show();
             return;
@@ -151,9 +170,10 @@ public class CreateFragment extends Fragment {
                 contacts.getEmail(),
                 contacts.getVKId(),
                 contacts.getNumber(),
-                contacts.getDiscord());
-
+                contacts.getDiscord(),
+                description.getDescription());
         cacheManager.addPerson(person);
+        Toast.makeText(getActivity().getApplicationContext(),getString(R.string.saved),Toast.LENGTH_LONG).show();
     }
 
     public void Gone()
@@ -170,11 +190,6 @@ public class CreateFragment extends Fragment {
         InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(
                 Context.INPUT_METHOD_SERVICE);
         View focusedView = getActivity().getCurrentFocus();
-        /*
-         * If no view is focused, an NPE will be thrown
-         *
-         * Maxim Dmitriev
-         */
         if (focusedView != null) {
             inputManager.hideSoftInputFromWindow(focusedView.getWindowToken(),
                     InputMethodManager.HIDE_NOT_ALWAYS);

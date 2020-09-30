@@ -14,9 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.visit.Cache.CacheManager;
 import com.example.visit.Person;
 import com.example.visit.R;
-import com.example.visit.list.RVAdapter;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListFragment extends Fragment {

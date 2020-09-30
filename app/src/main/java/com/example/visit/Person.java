@@ -14,13 +14,14 @@ public class Person {
     private String number;
     private String discord;
     private String photoId;
+    private String description;
 
     @PrimaryKey(autoGenerate = true)
     private long id;
 
     public Person(){}
 
-    public Person(String name, String post, String photoId, String email, String vk, String number, String discord) {
+    public Person(String name, String post, String photoId, String email, String vk, String number, String discord, String description) {
         this.name = name;
         this.post = post;
         this.email = email;
@@ -28,6 +29,7 @@ public class Person {
         this.number = number;
         this.discord = discord;
         this.photoId = photoId;
+        this.description = description;
     }
 
     public String getName() {
@@ -92,5 +94,13 @@ public class Person {
 
     public void setDiscord(String discord) {
         this.discord = discord;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

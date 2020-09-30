@@ -94,4 +94,14 @@ public class Check {
 
         return true;
     }
+
+    public  boolean checkDescription(HashMap map, TextInputLayout description) {
+        String current = description.getEditText().getText().toString();
+        if (!current.equals("")) {
+            map.put("description", current);
+            return true;
+        }
+        Toast.makeText(context,context.getString(R.string.expDescription),Toast.LENGTH_LONG).show();
+        return false;
+    }
 }

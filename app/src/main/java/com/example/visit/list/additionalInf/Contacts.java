@@ -28,6 +28,7 @@ public class Contacts extends Fragment {
     private HashMap<String,String> map = new HashMap<>();
     private Button btnSave;
     private Check check;
+    private View rootView;
     private BottomSheetBehavior bottomSheetBehavior;
 
     public Contacts(BottomSheetBehavior bottomSheetBehavior)
@@ -39,7 +40,7 @@ public class Contacts extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_contact,container,false);
+        rootView = inflater.inflate(R.layout.fragment_contact,container,false);
         vkId = rootView.findViewById(R.id.createVK);
         number = rootView.findViewById(R.id.createNumber);
         discord = rootView.findViewById(R.id.createDiscord);
@@ -97,5 +98,15 @@ public class Contacts extends Fragment {
 
     public HashMap<String, String> getMap() {
         return map;
+    }
+
+    public void Gone()
+    {
+        rootView.setVisibility(View.GONE);
+    }
+
+    public void Visible()
+    {
+        rootView.setVisibility(View.VISIBLE);
     }
 }
