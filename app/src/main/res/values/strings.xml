@@ -2,10 +2,9 @@
     <string name="app_name">Visit</string>
     <string name="view_user">Просмотр</string>
     <string name="menu">Люди</string>
-    <string name="create_person">Создвть профиль</string>
+    <string name="create_person">Создать профиль</string>
     <string name="save">Сохранить</string>
     <string name="saved">Сохранено</string>
-    <string name="description">Описание</string>
 
 
     //Профиль
@@ -19,8 +18,11 @@
     <string name="number">number</string>
     <string name="git">git</string>
 
+    //О себе
+    <string name="description">Напишите пару слов о себе</string>
+
     //Ошибки
-    <string name="exceptionContact">Выошиблись или не заполнили все поля в разделе контакты</string>
+    <string name="exceptionContact">Вы ошиблись или не заполнили все поля в разделе контакты</string>
     <string name="expAvatar">Вы не добавили фото</string>
     <string name="expVK">Вы указали неправильный id пользователя вк</string>
     <string name="expEmail">Вы указали неправильный email</string>
@@ -28,6 +30,7 @@
     <string name="expDiscord">Вы указали неверный ник в дискорде</string>
     <string name="expName">Вы указали неверное имя</string>
     <string name="expGit">Вы указали неверное имя на git</string>
+    <string name="expDescription">Вы оставили пустым поле О себе</string>
 
     //Префиксы
     <string name="prefVK">https://vk.com/</string>
