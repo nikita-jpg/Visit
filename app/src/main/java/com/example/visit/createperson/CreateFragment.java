@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -19,10 +18,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.visit.Cache.CacheManager;
-import com.example.visit.list.Check;
-import com.example.visit.list.additionalInf.Contacts;
-import com.example.visit.list.additionalInf.DescriptionPerson;
+import com.example.visit.сache.CacheManager;
+import com.example.visit.createperson.Contacts;
+import com.example.visit.createperson.DescriptionPerson;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.textfield.TextInputLayout;
 import com.jackandphantom.circularimageview.RoundedImage;
@@ -44,7 +42,7 @@ public class CreateFragment extends Fragment {
     RoundedImage avatar;
     Contacts contacts;
     DescriptionPerson description;
-    Check check;
+    CheckInputInf checkInputInf;
     FrameLayout darkBack;
     private final int PICK_IMAGE = 1;
 
@@ -86,7 +84,7 @@ public class CreateFragment extends Fragment {
         });
         darkBack.setVisibility(View.GONE);
 
-        check = new Check(getContext());
+        checkInputInf = new CheckInputInf(getContext());
 
         //Инициализация additionalInf
         contacts = new Contacts(bottomSheetBehavior);

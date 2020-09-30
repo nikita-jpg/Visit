@@ -1,12 +1,9 @@
-package com.example.visit.list.additionalInf;
+package com.example.visit.createperson;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -15,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.visit.R;
-import com.example.visit.list.Check;
+import com.example.visit.CheckInputInf;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -27,7 +24,7 @@ public class Contacts extends Fragment {
     private TextInputLayout vkId,number,discord,email,git;
     private HashMap<String,String> map = new HashMap<>();
     private Button btnSave;
-    private Check check;
+    private CheckInputInf checkInputInf;
     private View rootView;
     private BottomSheetBehavior bottomSheetBehavior;
 
@@ -48,7 +45,7 @@ public class Contacts extends Fragment {
         btnSave = rootView.findViewById(R.id.createBtn);
         git = rootView.findViewById(R.id.createGit);
 
-        check = new Check(getContext());
+        checkInputInf = new CheckInputInf(getContext());
 
         map.put("vkId","");
         map.put("email","");
@@ -59,7 +56,7 @@ public class Contacts extends Fragment {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(check.checkContact(map, vkId,number,discord,email,git))
+                if(checkInputInf.checkContact(map, vkId,number,discord,email,git))
                 {
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                     Toast.makeText(getContext(),getString(R.string.saved),Toast.LENGTH_SHORT).show();

@@ -8,8 +8,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.visit.Cache.CacheManager;
-import com.example.visit.list.ListFragment;
+import com.example.visit.createperson.CreateFragment;
+import com.example.visit.сache.CacheManager;
+import com.example.visit.personlist.PersonListFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
         CacheManager cacheManager = new CacheManager(getApplicationContext());
 
 
-        final ListFragment listFragment = new ListFragment(cacheManager);
+        final PersonListFragment personListFragment = new PersonListFragment(cacheManager);
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, listFragment)
+                .add(R.id.container, personListFragment)
                 .commit();
 
         final CreateFragment createFragment = new CreateFragment(cacheManager);
@@ -39,13 +40,13 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId() == R.id.action_menu)
                 {
-                    listFragment.Visible();
+                    personListFragment.Visible();
                     createFragment.Gone();
                 }
 
                 else
                 {
-                    listFragment.Gone();
+                    personListFragment.Gone();
                     createFragment.Visible();
                 }
                 return true;

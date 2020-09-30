@@ -1,4 +1,4 @@
-package com.example.visit.list.additionalInf;
+package com.example.visit.createperson;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.visit.R;
-import com.example.visit.list.Check;
+import com.example.visit.CheckInputInf;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -24,7 +24,7 @@ public class DescriptionPerson extends Fragment {
     private TextInputLayout descriptionInputLayout;
     private HashMap<String,String> map = new HashMap<>();
     private Button btnSave;
-    private Check check;
+    private CheckInputInf checkInputInf;
 
     public DescriptionPerson(BottomSheetBehavior bottomSheetBehavior)
     {
@@ -37,12 +37,12 @@ public class DescriptionPerson extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_description_person,container,false);
         descriptionInputLayout = rootView.findViewById(R.id.description_field);
         btnSave = rootView.findViewById(R.id.save_description_button);
-        check = new Check(getContext());
+        checkInputInf = new CheckInputInf(getContext());
         map.put("description", "");
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (check.checkDescription(map, descriptionInputLayout)) {
+                if (checkInputInf.checkDescription(map, descriptionInputLayout)) {
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                     Toast.makeText(getContext(), getString(R.string.saved), Toast.LENGTH_SHORT).show();
                 }
