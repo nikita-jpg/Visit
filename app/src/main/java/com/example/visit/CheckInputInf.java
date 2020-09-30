@@ -86,9 +86,16 @@ public class CheckInputInf {
             Toast.makeText(context,context.getString(R.string.expName),Toast.LENGTH_LONG).show();
             return false;
         }
+
+        if(prof == null || prof=="")
+        {
+            Toast.makeText(context,context.getString(R.string.expPost),Toast.LENGTH_LONG).show();
+            return false;
+        }
+
         if(avat == null)
         {
-            Toast.makeText(context,context.getString(R.string.expAvatar),Toast.LENGTH_LONG).show();
+            Toast.makeText(context,context.getString(R.string.expNotAvatar),Toast.LENGTH_LONG).show();
             return false;
         }
 

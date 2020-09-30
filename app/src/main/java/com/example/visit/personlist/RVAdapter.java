@@ -75,8 +75,7 @@ class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
             Uri uri = Uri.parse(persons.get(position).getPhotoId());
             holder.personPhoto.setImageBitmap(android.provider.MediaStore.Images.Media.getBitmap(cr,uri ));
         } catch (IOException e) {
-            Toast.makeText(context, "Ошибка загрузки", Toast.LENGTH_SHORT).show();
-            Log.d(TAG, "Ошибка загрузки", e);
+            Toast.makeText(context, context.getString(R.string.expLoadImage), Toast.LENGTH_SHORT).show();
         }
 
     }

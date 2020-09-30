@@ -5,7 +5,7 @@
     android:id="@+id/fragment_create"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/alert_dialog"
+    android:background="@xml/alert_dialog"
     android:padding="10dp">
 
 
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toBottomOf="@+id/avatarShow"
         app:layout_constraintVertical_bias="0.039"
         app:layout_constraintVertical_chainStyle="packed"
-        app:startIconDrawable="@drawable/contact_icon">
+        app:startIconDrawable="@xml/contact_icon">
 
         <EditText
             android:layout_width="match_parent"
@@ -42,7 +42,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameShow"
-        app:startIconDrawable="@drawable/phone_number_icon">
+        app:startIconDrawable="@xml/phone_number_icon">
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -62,7 +62,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numberShow"
-        app:startIconDrawable="@drawable/email_icon">
+        app:startIconDrawable="@xml/email_icon">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

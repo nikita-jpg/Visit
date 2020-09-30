@@ -3,6 +3,7 @@ package com.example.visit.createperson;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,8 +23,6 @@ import com.example.visit.CheckInputInf;
 import com.example.visit.Person;
 import com.example.visit.R;
 import com.example.visit.сache.CacheManager;
-import com.example.visit.createperson.Contacts;
-import com.example.visit.createperson.DescriptionPerson;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.textfield.TextInputLayout;
 import com.jackandphantom.circularimageview.RoundedImage;
@@ -37,7 +36,7 @@ import static android.content.ContentValues.TAG;
 public class CreateFragment extends Fragment {
 
     View rootView;
-    Button btnSaveContacts, btnContact, btnDescription, btnSaveDescribe;
+    Button btnSave, btnContact, btnDescription, btnSaveDescribe;
     BottomSheetBehavior bottomSheetBehavior;
     TextInputLayout name, post,address;
     CacheManager cacheManager;
@@ -49,7 +48,7 @@ public class CreateFragment extends Fragment {
     FrameLayout darkBack;
     private final int PICK_IMAGE = 1;
 
-    CreateFragment(CacheManager cacheManager){
+    public CreateFragment(CacheManager cacheManager){
         this.cacheManager = cacheManager;
     }
 
@@ -60,13 +59,20 @@ public class CreateFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_create,container,false);
         rootView.setVisibility(View.GONE);
 
-        initialization();
+        init();
 
         return rootView;
     }
 
-    private void initialization()
+    private void init()
     {
+        //Инициализация объекта для проверки введённых данных
+        checkInputInf = new CheckInputInf(getContext());
+
+        //Аватар по умолчанию
+        Resources resources = getContext().getResources();
+        Uri uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + resources.getResourcePackageName(R.drawable.default_avatar) + '/' + resources.getResourceTypeName(R.drawable.default_avatar) + '/' + resources.getResourceEntryName(R.drawable.default_avatar) );
+        currentImage = String.valueOf(uri);
 
         //Инициализация объектов UI
         bottomSheetBehavior = BottomSheetBehavior.from(rootView.findViewById(R.id.bottom_sheet));
@@ -87,36 +93,13 @@ public class CreateFragment extends Fragment {
         });
         darkBack.setVisibility(View.GONE);
 
-        checkInputInf = new CheckInputInf(getContext());
 
-        //Инициализация additionalInf
+
+        //Инициализация Contact
         contacts = new Contacts(bottomSheetBehavior);
         getActivity().getSupportFragmentManager().beginTransaction()
                 .add(R.id.bottom_sheet, contacts)
                 .commit();
-
-        description = new DescriptionPerson(bottomSheetBehavior);
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .add(R.id.bottom_sheet, description)
-                .commit();
-
-        btnSaveContacts = rootView.findViewById(R.id.save_button);
-        btnSaveContacts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                save();
-            }
-        });
-
-        avatar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent photoPickerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                photoPickerIntent.setType("image/*");
-                startActivityForResult(photoPickerIntent, PICK_IMAGE);
-            }
-        });
-
         btnContact = rootView.findViewById(R.id.btn_contact);
         btnContact.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +111,36 @@ public class CreateFragment extends Fragment {
             }
         });
 
+
+        //Инициализация Description
+        description = new DescriptionPerson(bottomSheetBehavior);
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .add(R.id.bottom_sheet, description)
+                .commit();
+
+
+        //Кнопка сохранения
+        btnSave = rootView.findViewById(R.id.save_button);
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                save();
+            }
+        });
+
+
+        //Аватарка
+        avatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent photoPickerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                photoPickerIntent.setType("image/*");
+                startActivityForResult(photoPickerIntent, PICK_IMAGE);
+            }
+        });
+
+
+        //Инициализация описания
         btnDescription = rootView.findViewById(R.id.btn_describe);
         btnDescription.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,9 +169,11 @@ public class CreateFragment extends Fragment {
 
     }
 
-    //Добавить проверку на поля
+
     private void save()
     {
+        checkInputInf.checkNameProfAvat(name.getEditText().getText().toString(),post.getEditText().getText().toString(),currentImage);
+
         if(!contacts.check()) {
             Toast.makeText(getActivity().getApplicationContext(),getString(R.string.exceptionContact),Toast.LENGTH_LONG).show();
             return;

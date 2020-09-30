@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:prefixText="@string/prefVK"
-        app:startIconDrawable="@drawable/vk_icon_logo">
+        app:startIconDrawable="@xml/vk_icon_logo">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createVK"
-        app:startIconDrawable="@drawable/phone_number_icon">
+        app:startIconDrawable="@xml/phone_number_icon">
 
         <EditText
             android:layout_width="match_parent"
@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createNumber"
-        app:startIconDrawable="@drawable/email_icon">
+        app:startIconDrawable="@xml/email_icon">
 
         <EditText
             android:layout_width="match_parent"
@@ -82,7 +82,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createEmail"
         app:prefixText="#"
-        app:startIconDrawable="@drawable/discord_icon">
+        app:startIconDrawable="@xml/discord_icon">
 
         <EditText
             android:layout_width="match_parent"
@@ -103,7 +103,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createDiscord"
         app:prefixText="@string/prefGit"
-        app:startIconDrawable="@drawable/github_icon_logo">
+        app:startIconDrawable="@xml/github_icon_logo">
 
         <EditText
             android:layout_width="match_parent"

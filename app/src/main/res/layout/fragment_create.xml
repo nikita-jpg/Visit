@@ -29,7 +29,7 @@
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_photo_view"
-            app:startIconDrawable="@drawable/contact_icon">
+            app:startIconDrawable="@xml/contact_icon">
 
             <EditText
                 android:layout_width="match_parent"
@@ -49,7 +49,7 @@
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nameCreate"
-            app:startIconDrawable="@drawable/post_icon">
+            app:startIconDrawable="@xml/post_icon">
 
             <EditText
                 android:layout_width="match_parent"
@@ -71,7 +71,7 @@
             android:id="@+id/add_photo_view"
             android:layout_width="255dp"
             android:layout_height="255dp"
-            android:src="@drawable/add_person_user_icon"
+            android:src="@drawable/default_avatar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

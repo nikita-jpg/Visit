@@ -23,7 +23,6 @@
 
     //Ошибки
     <string name="exceptionContact">Вы ошиблись или не заполнили все поля в разделе контакты</string>
-    <string name="expAvatar">Вы не добавили фото</string>
     <string name="expVK">Вы указали неправильный id пользователя вк</string>
     <string name="expEmail">Вы указали неправильный email</string>
     <string name="expNumber">Вы указали неверный номер телефона</string>
@@ -31,6 +30,9 @@
     <string name="expName">Вы указали неверное имя</string>
     <string name="expGit">Вы указали неверное имя на git</string>
     <string name="expDescription">Вы оставили пустым поле О себе</string>
+    <string name="expNotAvatar">Вы не добавили аватар</string>
+    <string name="expPost">Вы не должность проффессию сотрудника</string>
+    <string name="expLoadImage">Ошибка загрузки изображения</string>
 
     //Префиксы
     <string name="prefVK">https://vk.com/</string>
