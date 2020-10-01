@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class Test extends BottomNavigationView {
+public class CustomButNavBar extends BottomNavigationView {
     private boolean previousInList = false;
     private int menuSize = 0;
     private String a,b;
@@ -28,8 +28,9 @@ public class Test extends BottomNavigationView {
     List<LinkedHashMap<String, Drawable>> menuNames = new ArrayList<>();
 
 
-    public Test(@NonNull Context context, final MainActivity mainActivity,int menuId) {
+    public CustomButNavBar(@NonNull Context context, final MainActivity mainActivity, int menuId) {
         super(context);
+
         this.mainActivity = mainActivity;
 
         inflateMenu(menuId);
@@ -49,7 +50,7 @@ public class Test extends BottomNavigationView {
         });
     }
 
-    public Test(@NonNull final Context context, @Nullable AttributeSet attrs) {
+    public CustomButNavBar(@NonNull final Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
     }
@@ -91,7 +92,7 @@ public class Test extends BottomNavigationView {
         int aSeparator = a.lastIndexOf('_');
         int bSeparator = b.lastIndexOf('_');
 
-        if (aSeparator != bSeparator)
+        if (aSeparator ==-1 || bSeparator==-1 || aSeparator != bSeparator)
             return false;
 
         if (a.substring(0, aSeparator).equals(b.substring(0, bSeparator)))

@@ -28,6 +28,13 @@
         <item name="prefixTextColor">@color/colorRed</item>
     </style>
 
+    <style name="BottomNawView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="backgroundTint">@color/colorBlack</item>
+        <item name="android:background">@color/colorBlack</item>
+        <item name="tint">@color/colorRed</item>
+        <item name="itemTextColor">@color/bnv_tab_item_foreground</item>
+    </style>
+
     <style name="MyCounterText" parent="TextAppearance.AppCompat.Small">
         <item name="android:textColor">@android:color/holo_orange_dark</item>
     </style>

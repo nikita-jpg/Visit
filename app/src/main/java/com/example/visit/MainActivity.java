@@ -4,13 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.RelativeLayout;
 
 import com.example.visit.createperson.CreateFragment;
 import com.example.visit.сache.CacheManager;
@@ -19,65 +18,60 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Test test;
+    private CustomButNavBar customButNavBar;
+    private CacheManager cacheManager;
+    private PersonListFragment personListFragment;
+    private CreateFragment createFragment;
+    private RelativeLayout mainLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test);
+        setContentView(R.layout.activity_main);
 
 
-        test = new Test(this,this,R.menu.test);
-        LinearLayout linearLayout = findViewById(R.id.test_liner);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        linearLayout.addView(test, params);
+        mainLayout = findViewById(R.id.container);
+        cacheManager = new CacheManager(getApplicationContext());
 
-        test.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getTitle().toString().equals(getString(R.string.test_2)))
-                {
-
-                }
-                return true;
-            }
-        });
-
-        /*
-        CacheManager cacheManager = new CacheManager(getApplicationContext());
-
-
-        final PersonListFragment personListFragment = new PersonListFragment(cacheManager);
+        personListFragment = new PersonListFragment(cacheManager);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, personListFragment)
                 .commit();
 
-        final CreateFragment createFragment = new CreateFragment(cacheManager);
+        createFragment = new CreateFragment(cacheManager);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, createFragment)
                 .commit();
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        CustomButNavBar bottomNavigationView = new CustomButNavBar(this,this,R.menu.menu_bottom_navigation);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            bottomNavigationView.setItemTextColor(getColorStateList(R.color.bnv_tab_item_foreground));
+            bottomNavigationView.setItemIconTintList(getColorStateList(R.color.bnv_tab_item_foreground));
+            bottomNavigationView.setBackgroundColor(getColor(R.color.colorBlack));
+        }
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        mainLayout.addView(bottomNavigationView,layoutParams);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.action_menu) {
-                    personListFragment.Visible();
-                    createFragment.Gone();
-                } else {
-                    personListFragment.Gone();
-                    createFragment.Visible();
-                }
+                setFragment(item.getItemId());
                 return true;
             }
         });
 
-         */
+
     }
 
     public void setFragment(int id)
     {
+        if (id == R.id.action_menu) {
+            personListFragment.Visible();
+            createFragment.Gone();
+        } else {
+            personListFragment.Gone();
+            createFragment.Visible();
+        }
         Log.i("Test","setFragment work, id:"+id);
     }
 
