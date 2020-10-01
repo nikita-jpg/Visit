@@ -24,12 +24,14 @@ public class CustomButNavBar extends BottomNavigationView {
     private boolean previousInList = false;
     private int menuSize = 0;
     private String a,b;
+    Context context;
     MainActivity mainActivity;
     List<LinkedHashMap<String, Drawable>> menuNames = new ArrayList<>();
 
 
     public CustomButNavBar(@NonNull Context context, final MainActivity mainActivity, int menuId) {
         super(context);
+        this.context = context;
 
         this.mainActivity = mainActivity;
 
@@ -42,7 +44,7 @@ public class CustomButNavBar extends BottomNavigationView {
                 Map.Entry<String,Drawable> menuItem = checkName(item.getTitle().toString());
                 if(menuItem!=null)
                 {
-                    mainActivity.setFragment(item.getItemId());
+                    mainActivity.setFragment(menuItem.getKey());
                     item.setTitle(menuItem.getKey());
                     item.setIcon(menuItem.getValue());
                 }
@@ -63,12 +65,15 @@ public class CustomButNavBar extends BottomNavigationView {
         menuSize = getMenu().size();
         for(int i=0;i<menuSize-1;i++)
         {
-            a = getMenu().getItem(i).getTitle().toString();
+            a = context.getResources().getResourceName(getMenu().getItem(i).getItemId());
+            a = a.substring(a.indexOf('/')+1);
+            
             previousInList = false;
 
             for(int j=i+1;j<menuSize;j++)
             {
-                b = getMenu().getItem(j).getTitle().toString();
+                b = context.getResources().getResourceName(getMenu().getItem(j).getItemId());
+                b = b.substring(b.indexOf('/')+1);
                 if(isTurn(a,b))
                 {
                     if(previousInList) {

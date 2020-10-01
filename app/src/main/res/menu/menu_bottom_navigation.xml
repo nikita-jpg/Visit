@@ -5,7 +5,11 @@
         android:icon="@drawable/menu"
         android:title="@string/menu" />
     <item
-        android:id="@+id/action_create"
+        android:id="@+id/action_create_1"
         android:icon="@drawable/add_user"
         android:title="@string/create_person" />
+    <item
+        android:id="@+id/action_create_2"
+        android:icon="@drawable/default_avatar"
+        android:title="@string/create_team_event" />
 </menu>

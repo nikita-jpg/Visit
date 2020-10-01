@@ -3,6 +3,7 @@
     <string name="view_user">Просмотр</string>
     <string name="menu">Люди</string>
     <string name="create_person">Создать профиль</string>
+    <string name="create_team_event">Создать достижение группы</string>
     <string name="save">Сохранить</string>
     <string name="saved">Сохранено</string>
 
