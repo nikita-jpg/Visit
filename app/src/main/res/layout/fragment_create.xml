@@ -9,13 +9,9 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:id="@+id/fragment_create"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
+        style="@style/BackgroundContainer"
         android:scrollbars="vertical">
-
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/nameCreate"
@@ -31,7 +27,7 @@
             app:layout_constraintTop_toBottomOf="@+id/add_photo_view"
             app:startIconDrawable="@xml/contact_icon">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
@@ -51,7 +47,7 @@
             app:layout_constraintTop_toBottomOf="@+id/nameCreate"
             app:startIconDrawable="@xml/post_icon">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
@@ -82,25 +78,22 @@
 
         <Button
             android:id="@+id/btn_contact"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/styleBtn"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:text="Контакты"
             android:stateListAnimator="@null"
             app:layout_constraintEnd_toEndOf="@+id/postCreate"
-            app:layout_constraintTop_toTopOf="@+id/save_button" />
+            app:layout_constraintTop_toTopOf="@+id/btn_describe" />
 
         <Button
-            android:id="@+id/btn_describe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/save_button"
+            style="@style/styleBtn"
             android:layout_marginTop="10dp"
             android:text="О себе"
             android:stateListAnimator="@null"
             app:layout_constraintEnd_toEndOf="@+id/btn_contact"
-            app:layout_constraintStart_toStartOf="@+id/save_button"
-            app:layout_constraintTop_toBottomOf="@+id/save_button" />
+            app:layout_constraintStart_toStartOf="@+id/btn_describe"
+            app:layout_constraintTop_toBottomOf="@+id/btn_describe" />
 
         <FrameLayout
             android:id="@+id/forDarkBack"

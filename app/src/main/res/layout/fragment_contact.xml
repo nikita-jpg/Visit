@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorTransparent">
+    style="@style/BackgroundContainer">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/createVK"
@@ -41,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/createVK"
         app:startIconDrawable="@xml/phone_number_icon">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="phone" />
@@ -61,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/createNumber"
         app:startIconDrawable="@xml/email_icon">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textEmailAddress" />
@@ -84,7 +81,7 @@
         app:prefixText="#"
         app:startIconDrawable="@xml/discord_icon">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="phone" />
@@ -105,7 +102,7 @@
         app:prefixText="@string/prefGit"
         app:startIconDrawable="@xml/github_icon_logo">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -114,8 +111,6 @@
     <Button
         android:id="@+id/createBtn"
         style="@style/styleBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="@string/save"
         app:layout_constraintEnd_toEndOf="parent"

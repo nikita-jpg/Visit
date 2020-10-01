@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.visit.Person;
 import com.example.visit.R;
+import com.example.visit.сache.CacheManager;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,9 +29,11 @@ import static android.content.ContentValues.TAG;
 class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
     List<Person> persons;
     Context context;
-    RVAdapter(List<Person> persons,Context context){
+    CacheManager cacheManager;
+    RVAdapter(List<Person> persons,Context context, CacheManager cacheManager){
         this.persons = persons;
         this.context = context;
+        this.cacheManager = cacheManager;
     }
 
     public static class PersonViewHolder extends RecyclerView.ViewHolder {
@@ -64,7 +67,7 @@ class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
         holder.show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PersonalInfFragment personalInfFragment = new PersonalInfFragment(context,persons.get(position));
+                PersonalInfFragment personalInfFragment = new PersonalInfFragment(context,persons.get(position), cacheManager);
                 personalInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
             }
         });

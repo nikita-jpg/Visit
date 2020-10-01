@@ -174,7 +174,7 @@ public class CreateFragment extends Fragment {
     {
         checkInputInf.checkNameProfAvat(name.getEditText().getText().toString(),post.getEditText().getText().toString(),currentImage);
 
-        if(!contacts.check()) {
+        if(!contacts.check(contacts.getMap())) {
             Toast.makeText(getActivity().getApplicationContext(),getString(R.string.exceptionContact),Toast.LENGTH_LONG).show();
             return;
         }
@@ -187,9 +187,11 @@ public class CreateFragment extends Fragment {
                 contacts.getVKId(),
                 contacts.getNumber(),
                 contacts.getDiscord(),
+                contacts.getGit(),
                 description.getDescription());
         cacheManager.addPerson(person);
         Toast.makeText(getActivity().getApplicationContext(),getString(R.string.saved),Toast.LENGTH_LONG).show();
+
     }
 
     public void Gone()

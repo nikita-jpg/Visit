@@ -1,31 +1,33 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorLightAccent</item>
+        <item name="android:editTextColor">@color/colorLightAccent</item>
     </style>
 
-    <style name="styleBtn" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="android:textColor">@color/colorRed</item>
+    <style name="styleBtn" parent="Widget.MaterialComponents.Button">
+        <item name="android:minWidth">58pt</item>
+        <item name="android:minHeight">22pt</item>
+        <item name="backgroundTint">@color/colorRed</item>
+        <item name="android:textColor">@color/colorPrimary</item>
         <item name="strokeColor">@color/colorRed</item>
         <item name="rippleColor">@color/colorRed</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+
     </style>
 
 
     <style name="TextLabel" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/colorRed</item>
-        <item name="hintTextColor">@color/colorRed</item>
-        <item name="android:textColorHint">@color/colorRed</item>
-        <item name="boxBackgroundColor">@color/colorTransparent</item>
-    </style>
-
-    <style name="TextLabelTest" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/colorBlue</item>
-        <item name="hintTextColor">@color/colorWhite</item>
-        <item name="android:textColorHint">@color/colorWhite</item>
-        <item name="boxBackgroundColor">@color/colorTransparent</item>
-        <item name="prefixTextColor">@color/colorRed</item>
+        <item name="boxStrokeColor">@color/colorDarkAccent</item>
+        <item name="hintTextColor">@color/colorLightAccent</item>
+        <item name="android:textColorHint">@color/colorLightAccent</item>
+        <item name="boxBackgroundColor">@color/colorPrimaryDark</item>
+        <item name="prefixTextColor">@color/colorLightAccent</item>
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">59dp</item>
     </style>
 
     <style name="BottomNawView" parent="Widget.MaterialComponents.BottomNavigationView">
@@ -37,6 +39,12 @@
 
     <style name="MyCounterText" parent="TextAppearance.AppCompat.Small">
         <item name="android:textColor">@android:color/holo_orange_dark</item>
+    </style>
+
+    <style name="BackgroundContainer">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
     </style>
 
 </resources>
