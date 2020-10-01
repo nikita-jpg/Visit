@@ -51,6 +51,11 @@ public class CacheManager
         return id;
     }
 
+    public void editPerson(Person person)
+    {
+        textElementDao.update(person);
+    }
+
     public Person getTextById(long id)
     {
         Person person = textElementDao.getElementById(id);

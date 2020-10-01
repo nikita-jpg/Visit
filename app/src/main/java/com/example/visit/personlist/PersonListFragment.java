@@ -35,7 +35,7 @@ public class PersonListFragment extends Fragment {
         rootView.setLayoutManager(linearLayoutManager);
 
         List<Person> persons = cacheManager.getAllText();;
-        RVAdapter rvAdapter = new RVAdapter(persons,getContext());
+        RVAdapter rvAdapter = new RVAdapter(persons,getContext(), cacheManager);
         rootView.setAdapter(rvAdapter);
 
         return rootView;

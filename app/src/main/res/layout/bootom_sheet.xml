@@ -4,7 +4,6 @@
     android:id="@+id/bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="500dp"
-    android:background="@xml/bottom_shhet"
     android:orientation="vertical"
     app:behavior_hideable="true"
     app:behavior_peekHeight="0dp"

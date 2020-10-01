@@ -80,20 +80,19 @@ public class CheckInputInf {
 
     public boolean checkNameProfAvat(String name,String prof,String avat)
     {
-        matcher = VALID_NAME_REGEX.matcher(name);
-        if(!matcher.find())
+        if(name.equals(""))
         {
             Toast.makeText(context,context.getString(R.string.expName),Toast.LENGTH_LONG).show();
             return false;
         }
 
-        if(prof == null || prof=="")
+        if(prof.equals(""))
         {
             Toast.makeText(context,context.getString(R.string.expPost),Toast.LENGTH_LONG).show();
             return false;
         }
 
-        if(avat == null)
+        if(avat.equals(""))
         {
             Toast.makeText(context,context.getString(R.string.expNotAvatar),Toast.LENGTH_LONG).show();
             return false;

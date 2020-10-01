@@ -14,6 +14,7 @@ public class Person {
     private String number;
     private String discord;
     private String photoId;
+    private String git;
     private String description;
 
     @PrimaryKey(autoGenerate = true)
@@ -21,7 +22,9 @@ public class Person {
 
     public Person(){}
 
-    public Person(String name, String post, String photoId, String email, String vk, String number, String discord, String description) {
+
+
+    public Person(String name, String post, String photoId, String email, String vk, String number, String discord, String git, String description) {
         this.name = name;
         this.post = post;
         this.email = email;
@@ -29,6 +32,7 @@ public class Person {
         this.number = number;
         this.discord = discord;
         this.photoId = photoId;
+        this.git = git;
         this.description = description;
     }
 
@@ -94,6 +98,14 @@ public class Person {
 
     public void setDiscord(String discord) {
         this.discord = discord;
+    }
+
+    public String getGit() {
+        return git;
+    }
+
+    public void setGit(String git) {
+        this.git = git;
     }
 
     public String getDescription() {

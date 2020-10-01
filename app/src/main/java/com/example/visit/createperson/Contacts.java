@@ -21,7 +21,9 @@ import java.util.Map;
 
 public class Contacts extends Fragment {
 
-    private TextInputLayout vkId,number,discord,email,git;
+    private TextInputLayout[] fields = new TextInputLayout[5];
+    private int[] fieldsIDs = { R.id.createVK, R.id.createNumber,
+            R.id.createDiscord, R.id.createEmail, R.id.createGit};
     private HashMap<String,String> map = new HashMap<>();
     private Button btnSave;
     private CheckInputInf checkInputInf;
@@ -38,12 +40,13 @@ public class Contacts extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_contact,container,false);
-        vkId = rootView.findViewById(R.id.createVK);
-        number = rootView.findViewById(R.id.createNumber);
-        discord = rootView.findViewById(R.id.createDiscord);
-        email = rootView.findViewById(R.id.createEmail);
+
+        for (int i = 0; i < fields.length; i++) {
+            fields[i] = rootView.findViewById(fieldsIDs[i]);
+        }
+
         btnSave = rootView.findViewById(R.id.createBtn);
-        git = rootView.findViewById(R.id.createGit);
+
 
         checkInputInf = new CheckInputInf(getContext());
 
@@ -56,7 +59,7 @@ public class Contacts extends Fragment {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkInputInf.checkContact(map, vkId,number,discord,email,git))
+                if(checkInputInf.checkContact(map, fields[0], fields[1], fields[2], fields[3], fields[4]))
                 {
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                     Toast.makeText(getContext(),getString(R.string.saved),Toast.LENGTH_SHORT).show();
@@ -67,7 +70,7 @@ public class Contacts extends Fragment {
         return rootView;
     }
 
-    public boolean check()
+    public static boolean check(HashMap<String, String> map)
     {
         for (Map.Entry entry: map.entrySet())
             if(entry.getValue().equals(""))
@@ -91,6 +94,9 @@ public class Contacts extends Fragment {
     public String getNumber()
     {
         return map.get("number");
+    }
+    public String getGit() {
+        return map.get("git");
     }
 
     public HashMap<String, String> getMap() {
