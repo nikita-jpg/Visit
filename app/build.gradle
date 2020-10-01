@@ -35,6 +35,9 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.2.5'
     annotationProcessor 'androidx.room:room-compiler:2.2.5'
 
+    //KeyBoard Listener
+    implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:1.0.1'
+
     //Experement
     implementation 'com.jackandphantom.android:circularimageview:1.2.0'
 

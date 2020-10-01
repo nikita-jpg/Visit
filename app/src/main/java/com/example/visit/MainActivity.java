@@ -16,6 +16,10 @@ import com.example.visit.сache.CacheManager;
 import com.example.visit.personlist.PersonListFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
+import net.yslibrary.android.keyboardvisibilityevent.util.UIUtil;
+
 public class MainActivity extends AppCompatActivity {
 
     //Фрагменты
@@ -88,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void setFragment(String title)
     {
+        if(KeyboardVisibilityEvent.isKeyboardVisible(MainActivity.this))
+            UIUtil.hideKeyboard(MainActivity.this);
+
         personListFragment.Gone();
         createPersonFragment.Gone();
         createTeamEventFragment.Gone();
