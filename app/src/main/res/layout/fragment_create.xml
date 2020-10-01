@@ -62,6 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Сохранить"
+            android:stateListAnimator="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/postCreate"
             app:layout_constraintTop_toBottomOf="@+id/postCreate"
@@ -86,6 +87,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:text="Контакты"
+            android:stateListAnimator="@null"
             app:layout_constraintEnd_toEndOf="@+id/postCreate"
             app:layout_constraintTop_toTopOf="@+id/save_button" />
 
@@ -95,23 +97,26 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="О себе"
+            android:stateListAnimator="@null"
             app:layout_constraintEnd_toEndOf="@+id/btn_contact"
             app:layout_constraintStart_toStartOf="@+id/save_button"
             app:layout_constraintTop_toBottomOf="@+id/save_button" />
 
+        <FrameLayout
+            android:id="@+id/forDarkBack"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorAbsBlack"
+            android:clickable="false"
+            app:layout_anchorGravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <FrameLayout
-        android:id="@+id/forDarkBack"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorAbsBlack"
-        android:clickable="false"
-        app:layout_anchor="@+id/fragment_create"
-        app:layout_anchorGravity="center">
 
-    </FrameLayout>
 
     <include layout="@layout/bootom_sheet" />
 

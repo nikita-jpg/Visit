@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         initNavBar();
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
         layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-        mainLayout.addView(bottomNavigationView,layoutParams);
+        ((RelativeLayout)findViewById(R.id.container_nav)).addView(bottomNavigationView,layoutParams);
 
     }
 
@@ -75,17 +75,17 @@ public class MainActivity extends AppCompatActivity {
     {
         personListFragment = new PersonListFragment(cacheManager);
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, personListFragment)
+                .add(R.id.container_frags, personListFragment)
                 .commit();
 
         createPersonFragment = new CreateFragment(cacheManager);
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, createPersonFragment)
+                .add(R.id.container_frags, createPersonFragment)
                 .commit();
 
         createTeamEventFragment = new CreateTeamEvent();
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.container,createTeamEventFragment)
+                .add(R.id.container_frags,createTeamEventFragment)
                 .commit();
 
     }
