@@ -171,7 +171,6 @@ public class CreateFragment extends Fragment {
 
     }
 
-
     private void save() {
         checkInputInf.checkNameProfAvat(name.getEditText().getText().toString(), post.getEditText().getText().toString(), currentImage);
 

@@ -127,7 +127,7 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
         teamEvent.setImg1(curImg1);
         teamEvent.setImg2(curImg2);
         cacheManager.teamEdit(teamEvent);
-        rvAdapterTeam.add(teamEvent);
+        rvAdapterTeam.notifyDataSetChanged();
         Toast.makeText(getActivity().getApplicationContext(),getString(R.string.saved),Toast.LENGTH_LONG).show();
     }
 
