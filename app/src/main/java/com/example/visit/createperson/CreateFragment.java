@@ -76,7 +76,7 @@ public class CreateFragment extends Fragment {
 
         //Инициализация объектов UI
         bottomSheetBehavior = BottomSheetBehavior.from(rootView.findViewById(R.id.bottom_sheet));
-        name  = rootView.findViewById(R.id.nameCreate);
+        name  = rootView.findViewById(R.id.event_desc_1);
         post = rootView.findViewById(R.id.postCreate);
         address = rootView.findViewById(R.id.emailShow);
         avatar = rootView.findViewById(R.id.add_photo_view);

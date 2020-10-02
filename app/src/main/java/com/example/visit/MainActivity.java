@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             bottomNavigationView.setItemTextColor(getColorStateList(R.color.bnv_tab_item_foreground));
             bottomNavigationView.setItemIconTintList(getColorStateList(R.color.bnv_tab_item_foreground));
-            bottomNavigationView.setBackgroundColor(getColor(R.color.colorBlack));
+            bottomNavigationView.setBackgroundColor(getColor(R.color.colorLightAccent));
         }
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

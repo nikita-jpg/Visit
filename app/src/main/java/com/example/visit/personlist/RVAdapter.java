@@ -3,7 +3,6 @@ package com.example.visit.personlist;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,8 +23,6 @@ import com.example.visit.сache.CacheManager;
 import java.io.IOException;
 import java.util.List;
 
-import static android.content.ContentValues.TAG;
-
 class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
     List<Person> persons;
     Context context;
@@ -44,7 +41,7 @@ class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
         PersonViewHolder(View itemView) {
             super(itemView);
             cv = itemView.findViewById(R.id.cardView);
-            personName = itemView.findViewById(R.id.nameCreate);
+            personName = itemView.findViewById(R.id.event_desc_1);
             personPhoto = itemView.findViewById(R.id.photoAvatar);
             show = itemView.findViewById(R.id.show);
         }

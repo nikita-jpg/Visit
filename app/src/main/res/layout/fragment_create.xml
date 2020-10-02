@@ -14,7 +14,7 @@
         android:scrollbars="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/nameCreate"
+            android:id="@+id/event_desc_1"
             style="@style/TextLabel"
             android:layout_width="300dp"
             android:layout_height="59dp"
@@ -44,7 +44,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameCreate"
+            app:layout_constraintTop_toBottomOf="@+id/event_desc_1"
             app:startIconDrawable="@xml/post_icon">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -54,10 +54,9 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/save_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Сохранить"
+            android:id="@+id/btn_describe"
+            style="@style/styleBtn"
+            android:text="О себе"
             android:stateListAnimator="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/postCreate"
@@ -79,7 +78,6 @@
         <Button
             android:id="@+id/btn_contact"
             style="@style/styleBtn"
-            android:layout_marginEnd="16dp"
             android:text="Контакты"
             android:stateListAnimator="@null"
             app:layout_constraintEnd_toEndOf="@+id/postCreate"
@@ -89,7 +87,7 @@
             android:id="@+id/save_button"
             style="@style/styleBtn"
             android:layout_marginTop="10dp"
-            android:text="О себе"
+            android:text="Сохранить"
             android:stateListAnimator="@null"
             app:layout_constraintEnd_toEndOf="@+id/btn_contact"
             app:layout_constraintStart_toStartOf="@+id/btn_describe"
@@ -105,7 +103,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></FrameLayout>
+            app:layout_constraintTop_toTopOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
