@@ -10,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.visit.CheckInputInf;
@@ -32,36 +34,40 @@ import static com.example.visit.createperson.Contacts.check;
 public class PersonalInfFragment extends DialogFragment {
     private CacheManager cacheManager;
     private Button buttonEdit;
+    private ImageButton buttonNextPerson, buttonPrevPerson;
     private int[] fieldsIDs = {R.id.nameShow, R.id.professionShow, R.id.numberShow, R.id.emailShow,
             R.id.vkShow, R.id.discordShow, R.id.gitShow, R.id.descriptionShow};
     private TextInputLayout[] fields = new TextInputLayout[fieldsIDs.length];
     private ImageView avatar;
+    List<Person> persons;
     private Context context;
     private Person person;
     private RVAdapterPerson rvAdapterPerson;
     private Uri uri;
+    private int position;
     private String currentImage;
     private boolean clickable = false;
     private final int PICK_IMAGE = 1;
 
-    PersonalInfFragment(Context context, Person person, CacheManager cacheManager, RVAdapterPerson rvAdapterPerson)
+
+    PersonalInfFragment(Context context, Person person, CacheManager cacheManager, int position)
     {
         this.context = context;
         this.person = person;
         this.cacheManager = cacheManager;
-        this.rvAdapterPerson = rvAdapterPerson;
+        this.position = position;
     }
-
     public PersonalInfFragment() {
     }
-
-
+    public void setPersons(List<Person> persons) {
+        this.persons = persons;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.person_inf_dialog, container, false);
-
+        final PersonalInfFragment thisPersonalInfFragment = this;
         for (int i = 0; i < fields.length; i++) {
             fields[i] = v.findViewById(fieldsIDs[i]);
         }
@@ -75,6 +81,8 @@ public class PersonalInfFragment extends DialogFragment {
         fields[7].getEditText().setText(person.getDescription());
 
         buttonEdit = v.findViewById(R.id.editBtnShow);
+        buttonNextPerson = v.findViewById(R.id.nextPerson);
+        buttonPrevPerson = v.findViewById(R.id.prevPerson);
         avatar = v.findViewById(R.id.avatarShow);
 
         //Грузим фотку
@@ -95,6 +103,30 @@ public class PersonalInfFragment extends DialogFragment {
                 Intent photoPickerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, PICK_IMAGE);
+            }
+        });
+
+        buttonNextPerson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (position + 1 < persons.size()) {
+                    PersonalInfFragment nextPersonalInfFragment = new PersonalInfFragment(context, persons.get(position + 1), cacheManager, position + 1);
+                    nextPersonalInfFragment.setPersons(persons);
+                    nextPersonalInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
+                    thisPersonalInfFragment.dismiss();
+                }
+            }
+        });
+
+        buttonPrevPerson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (position - 1 >= 0) {
+                    PersonalInfFragment nextPersonalInfFragment = new PersonalInfFragment(context, persons.get(position - 1), cacheManager, position - 1);
+                    nextPersonalInfFragment.setPersons(persons);
+                    nextPersonalInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
+                    thisPersonalInfFragment.dismiss();
+                }
             }
         });
 
