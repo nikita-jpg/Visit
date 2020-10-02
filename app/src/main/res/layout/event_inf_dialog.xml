@@ -6,7 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     android:background="@color/colorPrimaryDark">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -29,8 +28,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/event_inf_edit_1"
             style="@style/TextLabel"
-            android:hint="@string/event_description"
-            android:layout_height="wrap_content"
+            android:hint="@string/name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
@@ -38,12 +36,11 @@
             app:layout_constraintTop_toBottomOf="@+id/event_inf_photo_1"
             app:layout_constraintVertical_bias="0.039"
             app:layout_constraintVertical_chainStyle="packed"
-            app:startIconDrawable="@xml/ic_info">
+            app:startIconDrawable="@xml/contact_icon">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minLines="5"/>
+                android:layout_height="match_parent"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,8 +61,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/event_inf_edit_2"
             style="@style/TextLabel"
-            android:hint="@string/event_description"
-            android:layout_height="wrap_content"
+            android:hint="@string/name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
@@ -73,12 +69,11 @@
             app:layout_constraintTop_toBottomOf="@+id/event_inf_photo_2"
             app:layout_constraintVertical_bias="0.039"
             app:layout_constraintVertical_chainStyle="packed"
-            app:startIconDrawable="@xml/ic_info">
+            app:startIconDrawable="@xml/contact_icon">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minLines="5"/>
+                android:layout_height="match_parent"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,7 +81,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/event_inf_title"
             style="@style/TextLabel"
-            android:hint="@string/event_title"
+            android:hint="@string/name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
@@ -94,12 +89,11 @@
             app:layout_constraintTop_toBottomOf="@+id/event_inf_edit_2"
             app:layout_constraintVertical_bias="0.039"
             app:layout_constraintVertical_chainStyle="packed"
-            app:startIconDrawable="@xml/ic_project_icon">
+            app:startIconDrawable="@xml/contact_icon">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minLines="5"/>
+                android:layout_height="match_parent" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

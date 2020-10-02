@@ -4,9 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
 
@@ -18,6 +18,7 @@ import com.example.visit.personlist.PersonListFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 import net.yslibrary.android.keyboardvisibilityevent.util.UIUtil;
 
 public class MainActivity extends AppCompatActivity {
@@ -129,4 +130,5 @@ public class MainActivity extends AppCompatActivity {
     {
         personListFragment.update(person);
     }
+
 }

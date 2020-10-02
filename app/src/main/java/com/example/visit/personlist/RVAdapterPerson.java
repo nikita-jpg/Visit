@@ -2,7 +2,6 @@ package com.example.visit.personlist;
 
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.visit.Person;
@@ -66,8 +64,7 @@ public class RVAdapterPerson extends RecyclerView.Adapter<RVAdapterPerson.Person
         holder.show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PersonalInfFragment personalInfFragment = new PersonalInfFragment(context,persons.get(position), cacheManager, position);
-                personalInfFragment.setPersons(persons);
+                PersonalInfFragment personalInfFragment = new PersonalInfFragment(context,persons.get(position), cacheManager,RVAdapterPerson.this);
                 personalInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
             }
         });

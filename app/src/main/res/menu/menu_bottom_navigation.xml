@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_menu_1"
-        android:icon="@xml/ic_group"
+        android:icon="@drawable/menu"
         android:title="@string/menu" />
     <item
         android:id="@+id/action_menu_2"
-        android:icon="@xml/ic_achievement_mountain_flag_icon"
+        android:icon="@drawable/default_avatar"
         android:title="@string/events" />
     <item
         android:id="@+id/action_create_1"
@@ -14,6 +14,6 @@
         android:title="@string/create_person" />
     <item
         android:id="@+id/action_create_2"
-        android:icon="@xml/ic_add_project"
+        android:icon="@drawable/default_avatar"
         android:title="@string/create_team_event" />
 </menu>
