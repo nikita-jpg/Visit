@@ -65,7 +65,6 @@ class RVAdapterPerson extends RecyclerView.Adapter<RVAdapterPerson.PersonViewHol
             @Override
             public void onClick(View v) {
                 PersonalInfFragment personalInfFragment = new PersonalInfFragment(context,persons.get(position), cacheManager);
-                personalInfFragment.setPeople(persons);
                 personalInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
             }
         });

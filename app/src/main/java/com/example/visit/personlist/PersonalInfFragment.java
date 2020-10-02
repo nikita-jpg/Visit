@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
 import com.example.visit.CheckInputInf;
 import com.example.visit.Person;
@@ -32,7 +31,6 @@ import static com.example.visit.createperson.Contacts.check;
 
 public class PersonalInfFragment extends DialogFragment {
     private CacheManager cacheManager;
-    private List<Person> people;
     private Button buttonEdit;
     private int[] fieldsIDs = {R.id.nameShow, R.id.professionShow, R.id.numberShow, R.id.emailShow,
             R.id.vkShow, R.id.discordShow, R.id.gitShow, R.id.descriptionShow};
@@ -55,14 +53,12 @@ public class PersonalInfFragment extends DialogFragment {
     public PersonalInfFragment() {
     }
 
-    public void setPeople(List<Person> people) {
-        this.people = people;
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.dialog_show, container, false);
+        View v = inflater.inflate(R.layout.person_inf_dialog, container, false);
 
         for (int i = 0; i < fields.length; i++) {
             fields[i] = v.findViewById(fieldsIDs[i]);
@@ -204,4 +200,5 @@ public class PersonalInfFragment extends DialogFragment {
                 }
         }
     }
+
 }

@@ -60,8 +60,18 @@ public class RVAdapterTeam extends RecyclerView.Adapter<RVAdapterTeam.TeamViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TeamViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final TeamViewHolder holder, final int position) {
         holder.title.setText(teamEvents.get(position).getTitle());
+
+        //Кнопка "Посмотреть"
+        holder.show.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventInfFragment eventInfFragment = new EventInfFragment(cacheManager,teamEvents.get(position),context);
+                eventInfFragment.setTeamEvent(teamEvents.get(position));
+                eventInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
+            }
+        });
 
         //Грузим фотку
         ContentResolver cr = context.getContentResolver();

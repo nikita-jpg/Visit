@@ -2,6 +2,7 @@ package com.example.visit.createteamivent;
 
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
@@ -71,7 +72,10 @@ public class CreateTeamEvent extends Fragment {
         desc1Str = "";
         desc2Str = "";
 
-        currentImage1="";
+        //Аватар по умолчанию
+        Resources resources = getContext().getResources();
+        Uri uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + resources.getResourcePackageName(R.drawable.default_avatar) + '/' + resources.getResourceTypeName(R.drawable.default_avatar) + '/' + resources.getResourceEntryName(R.drawable.default_avatar));
+        currentImage1 = String.valueOf(uri);
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +85,7 @@ public class CreateTeamEvent extends Fragment {
             }
         });
 
-        currentImage2="";
+        currentImage2 = String.valueOf(uri);
         img2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
