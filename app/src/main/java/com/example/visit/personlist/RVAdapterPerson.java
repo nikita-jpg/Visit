@@ -59,12 +59,14 @@ public class RVAdapterPerson extends RecyclerView.Adapter<RVAdapterPerson.Person
     @Override
     public void onBindViewHolder(@NonNull final PersonViewHolder holder, final int position) {
         holder.personName.setText(persons.get(position).getName());
-
+        final RVAdapterPerson rvAdapterPerson = this;
         //Кнопка "Посмотреть"
         holder.show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PersonalInfFragment personalInfFragment = new PersonalInfFragment(context,persons.get(position), cacheManager,RVAdapterPerson.this);
+                PersonalInfFragment personalInfFragment = new PersonalInfFragment(context,persons.get(position), cacheManager,position);
+                personalInfFragment.setPersons(persons);
+                personalInfFragment.setRvAdapterPerson(rvAdapterPerson);
                 personalInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
             }
         });
