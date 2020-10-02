@@ -24,6 +24,7 @@ import com.example.visit.Person;
 import com.example.visit.R;
 import com.example.visit.сache.CacheManager;
 import com.google.android.material.textfield.TextInputLayout;
+import com.jackandphantom.circularimageview.CircleImage;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -40,7 +41,7 @@ public class PersonalInfFragment extends DialogFragment {
     private int[] fieldsIDs = {R.id.nameShow, R.id.professionShow, R.id.numberShow, R.id.emailShow,
             R.id.vkShow, R.id.discordShow, R.id.gitShow, R.id.descriptionShow};
     private TextInputLayout[] fields = new TextInputLayout[fieldsIDs.length];
-    private ImageView avatar;
+    private CircleImage avatar;
     List<Person> persons;
     private Context context;
     private Person person;
