@@ -1,173 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView
-    android:id="@+id/fragment_create"
-    style="@style/BackgroundContainer"
-    tools:context=".MainActivity"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    android:padding="5dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorTransparent">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/nameShow"
-                style="@style/TextLabel"
-                android:hint="@string/name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/avatarShow"
-                app:layout_constraintVertical_bias="0.039"
-                app:layout_constraintVertical_chainStyle="packed"
-                app:startIconDrawable="@xml/contact_icon">
+        <ImageButton
+            android:id="@+id/prevPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:src="@drawable/ic_keyboard_arrow_up_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+        <include
+            android:id="@+id/include_fragment_edit"
+            layout="@layout/fragment_edit"
+            app:layout_constraintTop_toBottomOf="@+id/prevPerson"/>
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/professionShow"
-                style="@style/TextLabel"
-                android:hint="@string/profession"
-                android:layout_marginTop="12dp"
-                app:layout_constraintStart_toStartOf="@+id/nameShow"
-                app:layout_constraintTop_toBottomOf="@+id/nameShow"
-                app:startIconDrawable="@xml/vk_icon_logo">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/numberShow"
-                style="@style/TextLabel"
-                android:layout_marginTop="12dp"
-                android:hint="@string/number"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/professionShow"
-                app:startIconDrawable="@xml/phone_number_icon">
+        <ImageButton
+            android:id="@+id/nextPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:src="@drawable/ic_keyboard_arrow_down_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_fragment_edit"
+            android:contentDescription="next person" />
 
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailShow"
-                style="@style/TextLabel"
-                android:layout_marginTop="12dp"
-                android:hint="@string/email"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/numberShow"
-                app:startIconDrawable="@xml/email_icon">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/vkShow"
-                style="@style/TextLabel"
-                android:hint="@string/vk"
-                android:layout_marginTop="12dp"
-                app:layout_constraintStart_toStartOf="@+id/emailShow"
-                app:layout_constraintTop_toBottomOf="@+id/emailShow"
-                app:startIconDrawable="@xml/vk_icon_logo">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/discordShow"
-                style="@style/TextLabel"
-                android:hint="@string/discord"
-                android:layout_marginTop="12dp"
-                app:layout_constraintStart_toStartOf="@+id/vkShow"
-                app:layout_constraintTop_toBottomOf="@+id/vkShow"
-                app:startIconDrawable="@xml/discord_icon">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/gitShow"
-                style="@style/TextLabel"
-                android:hint="@string/git"
-                android:layout_marginTop="12dp"
-                app:layout_constraintStart_toStartOf="@+id/discordShow"
-                app:layout_constraintTop_toBottomOf="@+id/discordShow"
-                app:startIconDrawable="@xml/github_icon_logo">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/descriptionShow"
-                style="@style/TextLabel"
-                android:layout_height="100dp"
-                android:hint="О себе"
-                android:layout_marginTop="12dp"
-                app:layout_constraintStart_toStartOf="@+id/gitShow"
-                app:layout_constraintTop_toBottomOf="@+id/gitShow">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <ImageView
-                android:id="@+id/avatarShow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.026"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <Button
-                android:id="@+id/editBtnShow"
-                style="@style/styleBtn"
-                android:layout_marginTop="36dp"
-                android:text="Редактировать"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/descriptionShow" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

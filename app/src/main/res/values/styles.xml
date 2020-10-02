@@ -19,6 +19,9 @@
 
     </style>
 
+    <style name="MyDialogTheme" parent="Theme.MaterialComponents.Dialog.Alert">
+        <item name="android:background">@color/colorPrimaryDark</item>
+    </style>
 
     <style name="TextLabel" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxStrokeColor">@color/colorDarkAccent</item>
@@ -26,8 +29,10 @@
         <item name="android:textColorHint">@color/colorLightAccent</item>
         <item name="boxBackgroundColor">@color/colorPrimaryDark</item>
         <item name="prefixTextColor">@color/colorLightAccent</item>
-        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:minWidth">280dp</item>
         <item name="android:layout_height">59dp</item>
+
     </style>
 
     <style name="BottomNawView" parent="Widget.MaterialComponents.BottomNavigationView">

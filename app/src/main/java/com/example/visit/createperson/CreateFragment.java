@@ -36,9 +36,9 @@ import static android.content.ContentValues.TAG;
 public class CreateFragment extends Fragment {
 
     View rootView;
-    Button btnSave, btnContact, btnDescription, btnSaveDescribe;
+    Button btnSave, btnContact, btnDescription;
     BottomSheetBehavior bottomSheetBehavior;
-    TextInputLayout name, post,address;
+    TextInputLayout name, post, address;
     CacheManager cacheManager;
     String currentImage = null;
     RoundedImage avatar;
@@ -48,7 +48,7 @@ public class CreateFragment extends Fragment {
     FrameLayout darkBack;
     private final int PICK_IMAGE = 1;
 
-    public CreateFragment(CacheManager cacheManager){
+    public CreateFragment(CacheManager cacheManager) {
         this.cacheManager = cacheManager;
     }
 
@@ -56,7 +56,7 @@ public class CreateFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_create,container,false);
+        rootView = inflater.inflate(R.layout.fragment_create, container, false);
         rootView.setVisibility(View.GONE);
 
         init();
@@ -64,14 +64,13 @@ public class CreateFragment extends Fragment {
         return rootView;
     }
 
-    private void init()
-    {
+    private void init() {
         //Инициализация объекта для проверки введённых данных
         checkInputInf = new CheckInputInf(getContext());
 
         //Аватар по умолчанию
         Resources resources = getContext().getResources();
-        Uri uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + resources.getResourcePackageName(R.drawable.default_avatar) + '/' + resources.getResourceTypeName(R.drawable.default_avatar) + '/' + resources.getResourceEntryName(R.drawable.default_avatar) );
+        Uri uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + resources.getResourcePackageName(R.drawable.default_avatar) + '/' + resources.getResourceTypeName(R.drawable.default_avatar) + '/' + resources.getResourceEntryName(R.drawable.default_avatar));
         currentImage = String.valueOf(uri);
 
         //Инициализация объектов UI
@@ -92,7 +91,6 @@ public class CreateFragment extends Fragment {
             }
         });
         darkBack.setVisibility(View.GONE);
-
 
 
         //Инициализация Contact
@@ -139,7 +137,6 @@ public class CreateFragment extends Fragment {
             }
         });
 
-
         //Инициализация описания
         btnDescription = rootView.findViewById(R.id.btn_describe);
         btnDescription.setOnClickListener(new View.OnClickListener() {
@@ -159,7 +156,7 @@ public class CreateFragment extends Fragment {
 
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                if(slideOffset == 0) {
+                if (slideOffset == 0) {
                     darkBack.setVisibility(View.GONE);
                     hideKeyboard();
                 }
@@ -170,12 +167,11 @@ public class CreateFragment extends Fragment {
     }
 
 
-    private void save()
-    {
-        checkInputInf.checkNameProfAvat(name.getEditText().getText().toString(),post.getEditText().getText().toString(),currentImage);
+    private void save() {
+        checkInputInf.checkNameProfAvat(name.getEditText().getText().toString(), post.getEditText().getText().toString(), currentImage);
 
-        if(!contacts.check(contacts.getMap())) {
-            Toast.makeText(getActivity().getApplicationContext(),getString(R.string.exceptionContact),Toast.LENGTH_LONG).show();
+        if (!Contacts.check(contacts.getMap())) {
+            Toast.makeText(getActivity().getApplicationContext(), getString(R.string.exceptionContact), Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -191,16 +187,13 @@ public class CreateFragment extends Fragment {
                 description.getDescription());
         cacheManager.personAdd(person);
         Toast.makeText(getActivity().getApplicationContext(),getString(R.string.saved),Toast.LENGTH_LONG).show();
-
     }
 
-    public void Gone()
-    {
+    public void Gone() {
         rootView.setVisibility(View.GONE);
     }
 
-    public void Visible()
-    {
+    public void Visible() {
         rootView.setVisibility(View.VISIBLE);
     }
 
@@ -217,20 +210,21 @@ public class CreateFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
         super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
-        switch(requestCode) {
+        switch (requestCode) {
             case PICK_IMAGE:
-                if(resultCode == RESULT_OK){
+                if (resultCode == RESULT_OK) {
                     Uri uri = imageReturnedIntent.getData();
                     currentImage = String.valueOf(uri);
 
                     //Грузим фотку
                     ContentResolver cr = getContext().getContentResolver();
                     try {
-                        avatar.setImageBitmap(android.provider.MediaStore.Images.Media.getBitmap(cr,uri ));
+                        avatar.setImageBitmap(android.provider.MediaStore.Images.Media.getBitmap(cr, uri));
                     } catch (IOException e) {
                         Toast.makeText(getContext(), "Ошибка загрузки", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "Ошибка загрузки", e);
                     }
                 }
-        }}
+        }
+    }
 }
