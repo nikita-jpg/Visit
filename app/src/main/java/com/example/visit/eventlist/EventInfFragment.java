@@ -25,11 +25,13 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.io.IOException;
 import java.util.HashMap;
 
+import static android.app.Activity.RESULT_OK;
 import static android.content.ContentValues.TAG;
 import static com.example.visit.createperson.Contacts.check;
 
 public class EventInfFragment extends androidx.fragment.app.DialogFragment {
     private CacheManager cacheManager;
+    private RVAdapterTeam rvAdapterTeam;
     private Button buttonEdit;
     private Uri uri;
     private TeamEvent teamEvent;
@@ -39,12 +41,14 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
     private String curImg1 = "";
     private String curImg2 = "";
     private boolean clickable = false;
-    private final int PICK_IMAGE = 1;
+    private final int PICK_IMAGE_1 = 1;
+    private final int PICK_IMAGE_2 = 2;
 
-    public EventInfFragment(CacheManager cacheManager, TeamEvent teamEvent, Context context) {
+    public EventInfFragment(CacheManager cacheManager, TeamEvent teamEvent, Context context, RVAdapterTeam rvAdapterTeam) {
         this.cacheManager = cacheManager;
         this.teamEvent = teamEvent;
         this.context = context;
+        this.rvAdapterTeam = rvAdapterTeam;
     }
 
     @Nullable
@@ -67,8 +71,11 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
         ContentResolver cr = context.getContentResolver();
         try {
             uri = Uri.parse(teamEvent.getImg1());
+            curImg1 = String.valueOf(uri);
             imgFir.setImageBitmap(android.provider.MediaStore.Images.Media.getBitmap(cr,uri ));
+
             uri = Uri.parse(teamEvent.getImg2());
+            curImg2 = String.valueOf(uri);
             imgSec.setImageBitmap(android.provider.MediaStore.Images.Media.getBitmap(cr,uri ));
         } catch (IOException e) {
             Toast.makeText(context, "Ошибка загрузки", Toast.LENGTH_SHORT).show();
@@ -79,7 +86,7 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
             public void onClick(View view) {
                 Intent photoPickerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 photoPickerIntent.setType("image/*");
-                startActivityForResult(photoPickerIntent, PICK_IMAGE);
+                startActivityForResult(photoPickerIntent, PICK_IMAGE_1);
             }
         });
 
@@ -88,7 +95,7 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
             public void onClick(View view) {
                 Intent photoPickerIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                 photoPickerIntent.setType("image/*");
-                startActivityForResult(photoPickerIntent, PICK_IMAGE);
+                startActivityForResult(photoPickerIntent, PICK_IMAGE_2);
             }
         });
 
@@ -109,6 +116,7 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
             }
         });
 
+        offClickable();
         return v;
     }
 
@@ -117,8 +125,9 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
         teamEvent.setDesc1(desc1.getEditText().getText().toString());
         teamEvent.setDesc2(desc2.getEditText().getText().toString());
         teamEvent.setImg1(curImg1);
-        teamEvent.setImg1(curImg2);
+        teamEvent.setImg2(curImg2);
         cacheManager.teamEdit(teamEvent);
+        rvAdapterTeam.notifyDataSetChanged();
         Toast.makeText(getActivity().getApplicationContext(),getString(R.string.saved),Toast.LENGTH_LONG).show();
     }
 
@@ -158,5 +167,44 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
 
     public void setTeamEvent(TeamEvent teamEvent) {
         this.teamEvent = teamEvent;
+    }
+
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
+        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
+        switch (requestCode) {
+            case PICK_IMAGE_1:
+                if (resultCode == RESULT_OK) {
+                    Uri uri = imageReturnedIntent.getData();
+                    curImg1 = String.valueOf(uri);
+
+                    //Грузим фотку
+                    ContentResolver cr = getContext().getContentResolver();
+                    try {
+                        imgFir.setImageBitmap(android.provider.MediaStore.Images.Media.getBitmap(cr, uri));
+                    } catch (IOException e) {
+                        Toast.makeText(getContext(), "Ошибка загрузки", Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "Ошибка загрузки", e);
+                    }
+                }
+                break;
+            case PICK_IMAGE_2:
+                if (resultCode == RESULT_OK) {
+                    Uri uri = imageReturnedIntent.getData();
+                    curImg2 = String.valueOf(uri);
+
+                    //Грузим фотку
+                    ContentResolver cr = getContext().getContentResolver();
+                    try {
+                        imgSec.setImageBitmap(android.provider.MediaStore.Images.Media.getBitmap(cr, uri));
+                    } catch (IOException e) {
+                        Toast.makeText(getContext(), "Ошибка загрузки", Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "Ошибка загрузки", e);
+                    }
+                }
+                break;
+        }
     }
 }

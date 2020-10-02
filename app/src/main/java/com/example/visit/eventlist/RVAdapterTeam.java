@@ -22,6 +22,7 @@ import com.example.visit.personlist.PersonalInfFragment;
 import com.example.visit.сache.CacheManager;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 public class RVAdapterTeam extends RecyclerView.Adapter<RVAdapterTeam.TeamViewHolder> {
@@ -67,7 +68,7 @@ public class RVAdapterTeam extends RecyclerView.Adapter<RVAdapterTeam.TeamViewHo
         holder.show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EventInfFragment eventInfFragment = new EventInfFragment(cacheManager,teamEvents.get(position),context);
+                EventInfFragment eventInfFragment = new EventInfFragment(cacheManager,teamEvents.get(position),context,RVAdapterTeam.this);
                 eventInfFragment.setTeamEvent(teamEvents.get(position));
                 eventInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
             }
@@ -88,6 +89,5 @@ public class RVAdapterTeam extends RecyclerView.Adapter<RVAdapterTeam.TeamViewHo
     public int getItemCount() {
         return teamEvents.size();
     }
-
 
 }

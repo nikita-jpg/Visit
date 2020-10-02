@@ -38,16 +38,18 @@ public class PersonalInfFragment extends DialogFragment {
     private ImageView avatar;
     private Context context;
     private Person person;
+    private RVAdapterPerson rvAdapterPerson;
     private Uri uri;
     private String currentImage;
     private boolean clickable = false;
     private final int PICK_IMAGE = 1;
 
-    PersonalInfFragment(Context context, Person person, CacheManager cacheManager)
+    PersonalInfFragment(Context context, Person person, CacheManager cacheManager, RVAdapterPerson rvAdapterPerson)
     {
         this.context = context;
         this.person = person;
         this.cacheManager = cacheManager;
+        this.rvAdapterPerson = rvAdapterPerson;
     }
 
     public PersonalInfFragment() {
@@ -149,6 +151,7 @@ public class PersonalInfFragment extends DialogFragment {
             person.setPhotoId(currentImage);
 
             cacheManager.personEdit(person);
+            rvAdapterPerson.notifyDataSetChanged();
             Toast.makeText(getActivity().getApplicationContext(),getString(R.string.saved),Toast.LENGTH_LONG).show();
 
             return true;

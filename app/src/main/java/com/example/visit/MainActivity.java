@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
 
 
-        createPersonFragment = new CreateFragment(cacheManager);
+        createPersonFragment = new CreateFragment(cacheManager,MainActivity.this);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container_frags, createPersonFragment)
                 .commit();
@@ -122,5 +122,9 @@ public class MainActivity extends AppCompatActivity {
             eventListFragment.Visible();
     }
 
+    public void update()
+    {
+        personListFragment.update();
+    }
 
 }

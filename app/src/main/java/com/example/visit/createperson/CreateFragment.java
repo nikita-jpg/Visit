@@ -20,8 +20,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.visit.CheckInputInf;
+import com.example.visit.MainActivity;
 import com.example.visit.Person;
 import com.example.visit.R;
+import com.example.visit.eventlist.RVAdapterTeam;
+import com.example.visit.personlist.RVAdapterPerson;
 import com.example.visit.сache.CacheManager;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.textfield.TextInputLayout;
@@ -36,6 +39,7 @@ import static android.content.ContentValues.TAG;
 public class CreateFragment extends Fragment {
 
     View rootView;
+    MainActivity mainActivity;
     Button btnSave, btnContact, btnDescription;
     BottomSheetBehavior bottomSheetBehavior;
     TextInputLayout name, post, address;
@@ -48,8 +52,9 @@ public class CreateFragment extends Fragment {
     FrameLayout darkBack;
     private final int PICK_IMAGE = 1;
 
-    public CreateFragment(CacheManager cacheManager) {
+    public CreateFragment(CacheManager cacheManager, MainActivity mainActivity) {
         this.cacheManager = cacheManager;
+        this.mainActivity = mainActivity;
     }
 
 
@@ -185,7 +190,9 @@ public class CreateFragment extends Fragment {
                 contacts.getDiscord(),
                 contacts.getGit(),
                 description.getDescription());
+
         cacheManager.personAdd(person);
+        mainActivity.update();
         Toast.makeText(getActivity().getApplicationContext(),getString(R.string.saved),Toast.LENGTH_LONG).show();
     }
 
@@ -197,7 +204,7 @@ public class CreateFragment extends Fragment {
         rootView.setVisibility(View.VISIBLE);
     }
 
-    void hideKeyboard() {
+    public void hideKeyboard() {
         InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(
                 Context.INPUT_METHOD_SERVICE);
         View focusedView = getActivity().getCurrentFocus();
@@ -206,6 +213,7 @@ public class CreateFragment extends Fragment {
                     InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {

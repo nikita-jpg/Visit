@@ -23,6 +23,7 @@ public class EventListFragment extends Fragment {
 
     private RecyclerView rootView;
     private CacheManager cacheManager;
+    private RVAdapterTeam rvAdapterPerson;
 
     public EventListFragment(CacheManager cacheManager)
     {
@@ -39,12 +40,13 @@ public class EventListFragment extends Fragment {
         rootView.setLayoutManager(linearLayoutManager);
 
         List<TeamEvent> events = cacheManager.teamGetAllText();
-        RVAdapterTeam rvAdapterPerson = new RVAdapterTeam(events,getContext(), cacheManager);
+        rvAdapterPerson = new RVAdapterTeam(events,getContext(), cacheManager);
         rootView.setAdapter(rvAdapterPerson);
         Gone();
 
         return rootView;
     }
+
 
     public void Gone()
     {

@@ -23,7 +23,7 @@ import com.example.visit.сache.CacheManager;
 import java.io.IOException;
 import java.util.List;
 
-class RVAdapterPerson extends RecyclerView.Adapter<RVAdapterPerson.PersonViewHolder>{
+public class RVAdapterPerson extends RecyclerView.Adapter<RVAdapterPerson.PersonViewHolder>{
     List<Person> persons;
     Context context;
     CacheManager cacheManager;
@@ -64,7 +64,7 @@ class RVAdapterPerson extends RecyclerView.Adapter<RVAdapterPerson.PersonViewHol
         holder.show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PersonalInfFragment personalInfFragment = new PersonalInfFragment(context,persons.get(position), cacheManager);
+                PersonalInfFragment personalInfFragment = new PersonalInfFragment(context,persons.get(position), cacheManager,RVAdapterPerson.this);
                 personalInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
             }
         });

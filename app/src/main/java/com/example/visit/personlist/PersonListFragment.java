@@ -18,6 +18,7 @@ import java.util.List;
 
 public class PersonListFragment extends Fragment {
 
+    private RVAdapterPerson rvAdapterPerson;
     RecyclerView rootView;
     CacheManager cacheManager;
 
@@ -35,10 +36,15 @@ public class PersonListFragment extends Fragment {
         rootView.setLayoutManager(linearLayoutManager);
 
         List<Person> persons = cacheManager.PersonGetAllText();;
-        RVAdapterPerson rvAdapterPerson = new RVAdapterPerson(persons,getContext(), cacheManager);
+        rvAdapterPerson = new RVAdapterPerson(persons,getContext(), cacheManager);
         rootView.setAdapter(rvAdapterPerson);
 
         return rootView;
+    }
+
+    public void update()
+    {
+        rvAdapterPerson.notifyDataSetChanged();
     }
 
     public void Gone()
