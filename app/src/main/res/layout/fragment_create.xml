@@ -17,7 +17,7 @@
             android:id="@+id/event_desc_1"
             style="@style/TextLabel"
             android:layout_width="300dp"
-            android:layout_height="59dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:hint="@string/name"
             app:endIconMode="clear_text"
@@ -29,7 +29,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content"
+                android:maxLines="2"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -37,7 +38,7 @@
             android:id="@+id/postCreate"
             style="@style/TextLabel"
             android:layout_width="300dp"
-            android:layout_height="59dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:hint="@string/profession"
             app:endIconMode="clear_text"
@@ -49,7 +50,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content"
+                android:maxLines="4"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -18,10 +18,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:hint="@string/description"
-            android:inputType="textMultiLine"
-            android:lines="5" />
+            android:minLines="5" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
