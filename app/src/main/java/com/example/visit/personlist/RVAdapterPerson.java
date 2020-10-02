@@ -23,11 +23,11 @@ import com.example.visit.сache.CacheManager;
 import java.io.IOException;
 import java.util.List;
 
-class RVAdapter extends RecyclerView.Adapter<RVAdapter.PersonViewHolder>{
+class RVAdapterPerson extends RecyclerView.Adapter<RVAdapterPerson.PersonViewHolder>{
     List<Person> persons;
     Context context;
     CacheManager cacheManager;
-    RVAdapter(List<Person> persons,Context context, CacheManager cacheManager){
+    RVAdapterPerson(List<Person> persons, Context context, CacheManager cacheManager){
         this.persons = persons;
         this.context = context;
         this.cacheManager = cacheManager;

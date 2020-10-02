@@ -1,5 +1,6 @@
-package com.example.visit.personlist;
+package com.example.visit.eventlist;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,32 +12,36 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.visit.сache.CacheManager;
 import com.example.visit.Person;
 import com.example.visit.R;
+import com.example.visit.TeamEvent;
+import com.example.visit.сache.CacheManager;
+
 import java.util.List;
 
-public class PersonListFragment extends Fragment {
+public class EventListFragment extends Fragment {
 
-    RecyclerView rootView;
-    CacheManager cacheManager;
+    private RecyclerView rootView;
+    private CacheManager cacheManager;
 
-    public PersonListFragment(CacheManager cacheManager){
+    public EventListFragment(CacheManager cacheManager)
+    {
         this.cacheManager = cacheManager;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = (RecyclerView) inflater.inflate(R.layout.fragment_menu_person,container,false);
+        rootView = (RecyclerView) inflater.inflate(R.layout.fragment_menu_event,container,false);
 
         GridLayoutManager linearLayoutManager = new GridLayoutManager(getContext(),2);
         linearLayoutManager.setInitialPrefetchItemCount(2);
         rootView.setLayoutManager(linearLayoutManager);
 
-        List<Person> persons = cacheManager.PersonGetAllText();;
-        RVAdapterPerson rvAdapterPerson = new RVAdapterPerson(persons,getContext(), cacheManager);
+        List<TeamEvent> events = cacheManager.teamGetAllText();
+        RVAdapterTeam rvAdapterPerson = new RVAdapterTeam(events,getContext(), cacheManager);
         rootView.setAdapter(rvAdapterPerson);
+        Gone();
 
         return rootView;
     }
@@ -50,5 +55,4 @@ public class PersonListFragment extends Fragment {
     {
         rootView.setVisibility(View.VISIBLE);
     }
-
 }

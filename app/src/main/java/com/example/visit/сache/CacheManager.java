@@ -69,7 +69,7 @@ public class CacheManager
 
 
     //TeamEvent
-    public List<TeamEvent> TeamGetAllText()
+    public List<TeamEvent> teamGetAllText()
     {
         return textElementDao.teamGetAll();
     }

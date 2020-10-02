@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.example.visit.createperson.CreateFragment;
 import com.example.visit.createteamivent.CreateTeamEvent;
+import com.example.visit.eventlist.EventListFragment;
 import com.example.visit.сache.CacheManager;
 import com.example.visit.personlist.PersonListFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -26,10 +27,12 @@ public class MainActivity extends AppCompatActivity {
     private PersonListFragment personListFragment;
     private CreateFragment createPersonFragment;
     private CreateTeamEvent createTeamEventFragment;
+    private EventListFragment eventListFragment;
 
     private CacheManager cacheManager;
     private RelativeLayout mainLayout;
     private CustomButNavBar bottomNavigationView;
+
 
 
 
@@ -78,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.container_frags, personListFragment)
                 .commit();
 
+
         createPersonFragment = new CreateFragment(cacheManager);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container_frags, createPersonFragment)
@@ -86,6 +90,11 @@ public class MainActivity extends AppCompatActivity {
         createTeamEventFragment = new CreateTeamEvent(cacheManager);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container_frags,createTeamEventFragment)
+                .commit();
+
+        eventListFragment = new EventListFragment(cacheManager);
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.container_frags,eventListFragment)
                 .commit();
 
     }
@@ -98,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         personListFragment.Gone();
         createPersonFragment.Gone();
         createTeamEventFragment.Gone();
+        eventListFragment.Gone();
 
         if(title.equals(getString(R.string.create_person)))
             createPersonFragment.Visible();
@@ -107,6 +117,9 @@ public class MainActivity extends AppCompatActivity {
 
         if(title.equals(getString(R.string.menu)))
             personListFragment.Visible();
+
+        if(title.equals(getString(R.string.events)))
+            eventListFragment.Visible();
     }
 
 

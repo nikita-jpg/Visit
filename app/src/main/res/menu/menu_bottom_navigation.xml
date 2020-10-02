@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/action_menu"
+        android:id="@+id/action_menu_1"
         android:icon="@drawable/menu"
         android:title="@string/menu" />
+    <item
+        android:id="@+id/action_menu_2"
+        android:icon="@drawable/default_avatar"
+        android:title="@string/events" />
     <item
         android:id="@+id/action_create_1"
         android:icon="@drawable/add_user"
