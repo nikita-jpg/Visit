@@ -16,6 +16,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.visit.R;
+import com.example.visit.TeamEvent;
+import com.example.visit.сache.CacheManager;
 import com.google.android.material.textfield.TextInputLayout;
 import com.jackandphantom.circularimageview.RoundedImage;
 
@@ -29,12 +31,20 @@ public class CreateTeamEvent extends Fragment {
     private final int PICK_IMAGE_1 = 1;
     private final int PICK_IMAGE_2 = 2;
 
-    private String currentImage1,currentImage2;
+    private String titleStr,desc1Str,desc2Str,currentImage1,currentImage2;
 
-    View rootView;
-    Button btnSaveTeam;
-    TextInputLayout desc1,desc2;
-    RoundedImage img1,img2;
+    private View rootView;
+    private Button btnSaveTeam;
+    private TextInputLayout title,desc1,desc2;
+    private RoundedImage img1,img2;
+
+    private CacheManager cacheManager;
+
+    public CreateTeamEvent(CacheManager cacheManager)
+    {
+        this.cacheManager = cacheManager;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -42,6 +52,7 @@ public class CreateTeamEvent extends Fragment {
         rootView.setVisibility(View.GONE);
 
         btnSaveTeam = rootView.findViewById(R.id.btn_save_team_event);
+        title = rootView.findViewById(R.id.event_title);
         desc1 = rootView.findViewById(R.id.event_desc_1);
         desc2 = rootView.findViewById(R.id.event_desc_2);
         img1 = rootView.findViewById(R.id.event_photo_1);
@@ -55,6 +66,10 @@ public class CreateTeamEvent extends Fragment {
 
     private void init()
     {
+        titleStr = "";
+        desc1Str = "";
+        desc2Str = "";
+
         currentImage1="";
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +89,31 @@ public class CreateTeamEvent extends Fragment {
                 startActivityForResult(photoPickerIntent, PICK_IMAGE_2);
             }
         });
+
+        btnSaveTeam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                save();
+            }
+        });
     }
+
+    private void save()
+    {
+        titleStr = title.getEditText().getText().toString();
+        if(titleStr.equals(""))
+        {
+            Toast.makeText(getContext(),getString(R.string.expTitle),Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        desc1Str = desc1.getEditText().getText().toString();
+        desc2Str = desc2.getEditText().getText().toString();
+        TeamEvent teamEvent = new TeamEvent(titleStr,desc1Str,desc2Str,currentImage1,currentImage2);
+        cacheManager.teamAdd(teamEvent);
+        Toast.makeText(getContext(),getString(R.string.saved),Toast.LENGTH_LONG).show();
+    }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
@@ -110,8 +149,6 @@ public class CreateTeamEvent extends Fragment {
                     }
                 }
         }}
-
-
 
     public void Gone()
     {

@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.container_frags, createPersonFragment)
                 .commit();
 
-        createTeamEventFragment = new CreateTeamEvent();
+        createTeamEventFragment = new CreateTeamEvent(cacheManager);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container_frags,createTeamEventFragment)
                 .commit();

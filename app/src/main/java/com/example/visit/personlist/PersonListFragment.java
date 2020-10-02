@@ -34,7 +34,7 @@ public class PersonListFragment extends Fragment {
         linearLayoutManager.setInitialPrefetchItemCount(2);
         rootView.setLayoutManager(linearLayoutManager);
 
-        List<Person> persons = cacheManager.getAllText();;
+        List<Person> persons = cacheManager.PersonGetAllText();;
         RVAdapter rvAdapter = new RVAdapter(persons,getContext(), cacheManager);
         rootView.setAdapter(rvAdapter);
 

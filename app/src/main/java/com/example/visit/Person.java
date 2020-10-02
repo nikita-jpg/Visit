@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-@Entity(tableName = "myTable")
+@Entity(tableName = "persons")
 public class Person {
     private String name;
     private String post;

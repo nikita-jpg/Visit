@@ -107,8 +107,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
     <include layout="@layout/bootom_sheet" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

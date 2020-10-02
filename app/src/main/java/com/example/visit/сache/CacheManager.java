@@ -12,6 +12,7 @@ import androidx.room.RoomDatabase;
 import androidx.room.Update;
 
 import com.example.visit.Person;
+import com.example.visit.TeamEvent;
 
 import java.util.List;
 
@@ -31,12 +32,13 @@ public class CacheManager
         textElementDao = textDb.textElementDao();
     }
 
-    public List<Person> getAllText()
-    {
-        return textElementDao.getAll();
-    }
 
-    public long addPerson(Person person)
+    //Person
+    public List<Person> PersonGetAllText()
+    {
+        return textElementDao.personGetAll();
+    }
+    public long personAdd(Person person)
     {
         long id = textElementDao.insert(person);
         /*
@@ -50,26 +52,58 @@ public class CacheManager
          */
         return id;
     }
-
-    public void editPerson(Person person)
+    public void personEdit(Person person)
     {
         textElementDao.update(person);
     }
-
-    public Person getTextById(long id)
+    public Person PersonGetTextById(long id)
     {
-        Person person = textElementDao.getElementById(id);
+        Person person = textElementDao.personGetById(id);
         return person;
     }
-
-    public long getNumberOfRecords()
+    public long PersonGetNumberOfRecords()
     {
-        return textElementDao.getNumberOfRecords();
+        return textElementDao.personGetNumberOfRecords();
     }
 
 
-                    //Текстовая Бд
-    @Database(entities =  {Person.class}, version = versionBd,exportSchema = false)
+
+    //TeamEvent
+    public List<TeamEvent> TeamGetAllText()
+    {
+        return textElementDao.teamGetAll();
+    }
+    public long teamAdd(TeamEvent event)
+    {
+        long id = textElementDao.insert(event);
+        /*
+        int a = (int) getNumberOfRecords();
+        long min = (int) textElementDao.getMinId();
+        if(getNumberOfRecords()>=100)
+        {
+            textElementDao.delete(getTextById(min));
+        }
+
+         */
+        return id;
+    }
+    public void teamEdit(TeamEvent event)
+    {
+        textElementDao.update(event);
+    }
+    public TeamEvent teamGetTextById(long id)
+    {
+        TeamEvent event = textElementDao.teamGetById(id);
+        return event;
+    }
+    public long teamGetNumberOfRecords()
+    {
+        return textElementDao.teamGetNumberOfRecords();
+    }
+
+
+    //Текстовая Бд
+    @Database(entities =  {Person.class, TeamEvent.class}, version = versionBd,exportSchema = false)
     public abstract static class TextDb extends RoomDatabase
     {
         public abstract TextElementDao textElementDao();
@@ -79,17 +113,19 @@ public class CacheManager
     @Dao
     public interface TextElementDao
     {
-        @Query("SELECT * FROM myTable")
-        List<Person> getAll();
 
-        @Query("SELECT * FROM myTable WHERE id = :id")
-        Person getElementById(long id);
+        //Person
+        @Query("SELECT * FROM persons")
+        List<Person> personGetAll();
 
-        @Query("SELECT COUNT(id) FROM myTable")
-        long getNumberOfRecords();
+        @Query("SELECT * FROM persons WHERE id = :id")
+        Person personGetById(long id);
 
-        @Query("SELECT MIN(id) FROM myTable")
-        long getMinId();
+        @Query("SELECT COUNT(id) FROM persons")
+        long personGetNumberOfRecords();
+
+        @Query("SELECT MIN(id) FROM persons")
+        long personGetMinId();
 
         @Insert
         long insert(Person person);
@@ -97,5 +133,28 @@ public class CacheManager
         void update(Person person);
         @Delete
         void delete(Person person);
+
+
+
+        //TeamEvent
+        @Query("SELECT * FROM events")
+        List<TeamEvent> teamGetAll();
+
+        @Query("SELECT * FROM events WHERE id = :id")
+        TeamEvent teamGetById(long id);
+
+        @Query("SELECT COUNT(id) FROM events")
+        long teamGetNumberOfRecords();
+
+        @Query("SELECT MIN(id) FROM events")
+        long teamGetMinId();
+
+        @Insert
+        long insert(TeamEvent teamEvent);
+        @Update
+        void update(TeamEvent teamEvent);
+        @Delete
+        void delete(TeamEvent teamEvent);
+
     }
 }

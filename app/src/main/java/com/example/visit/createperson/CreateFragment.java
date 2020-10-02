@@ -189,7 +189,7 @@ public class CreateFragment extends Fragment {
                 contacts.getDiscord(),
                 contacts.getGit(),
                 description.getDescription());
-        cacheManager.addPerson(person);
+        cacheManager.personAdd(person);
         Toast.makeText(getActivity().getApplicationContext(),getString(R.string.saved),Toast.LENGTH_LONG).show();
 
     }

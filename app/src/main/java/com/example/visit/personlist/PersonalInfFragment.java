@@ -125,7 +125,7 @@ public class PersonalInfFragment extends androidx.fragment.app.DialogFragment {
             person.setGit(getText(fields[6]));
             person.setDescription(getText(fields[7]));
 
-            cacheManager.editPerson(person);
+            cacheManager.personEdit(person);
             Toast.makeText(getActivity().getApplicationContext(),getString(R.string.saved),Toast.LENGTH_LONG).show();
 
             return true;
