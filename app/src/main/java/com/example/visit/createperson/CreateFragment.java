@@ -192,7 +192,7 @@ public class CreateFragment extends Fragment {
                 description.getDescription());
 
         cacheManager.personAdd(person);
-        mainActivity.update();
+        mainActivity.update(person);
         Toast.makeText(getActivity().getApplicationContext(),getString(R.string.saved),Toast.LENGTH_LONG).show();
     }
 
