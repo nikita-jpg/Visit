@@ -81,13 +81,12 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.container_frags, personListFragment)
                 .commit();
 
-
         createPersonFragment = new CreateFragment(cacheManager,MainActivity.this);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container_frags, createPersonFragment)
                 .commit();
 
-        createTeamEventFragment = new CreateTeamEvent(cacheManager);
+        createTeamEventFragment = new CreateTeamEvent(cacheManager, MainActivity.this);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container_frags,createTeamEventFragment)
                 .commit();
@@ -122,9 +121,14 @@ public class MainActivity extends AppCompatActivity {
             eventListFragment.Visible();
     }
 
-    public void update()
+    public void update(TeamEvent teamEvent)
     {
-        personListFragment.update();
+        eventListFragment.update(teamEvent);
+    }
+
+    public void update(Person person)
+    {
+        personListFragment.update(person);
     }
 
 }

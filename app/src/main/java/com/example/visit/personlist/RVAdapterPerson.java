@@ -80,6 +80,12 @@ public class RVAdapterPerson extends RecyclerView.Adapter<RVAdapterPerson.Person
 
     }
 
+    public void add(Person person)
+    {
+        persons.add(person);
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return persons.size();

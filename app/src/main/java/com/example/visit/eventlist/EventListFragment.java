@@ -47,6 +47,11 @@ public class EventListFragment extends Fragment {
         return rootView;
     }
 
+    public void update(TeamEvent event)
+    {
+        rvAdapterPerson.add(event);
+    }
+
 
     public void Gone()
     {

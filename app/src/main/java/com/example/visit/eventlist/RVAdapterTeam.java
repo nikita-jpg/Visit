@@ -85,6 +85,13 @@ public class RVAdapterTeam extends RecyclerView.Adapter<RVAdapterTeam.TeamViewHo
 
     }
 
+    public void add(TeamEvent event)
+    {
+        teamEvents.add(event);
+        notifyDataSetChanged();
+    }
+
+
     @Override
     public int getItemCount() {
         return teamEvents.size();

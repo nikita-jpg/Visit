@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.visit.MainActivity;
 import com.example.visit.R;
 import com.example.visit.TeamEvent;
 import com.example.visit.сache.CacheManager;
@@ -41,10 +42,12 @@ public class CreateTeamEvent extends Fragment {
     private RoundedImage img1,img2;
 
     private CacheManager cacheManager;
+    private MainActivity mainActivity;
 
-    public CreateTeamEvent(CacheManager cacheManager)
+    public CreateTeamEvent(CacheManager cacheManager, MainActivity mainActivity)
     {
         this.cacheManager = cacheManager;
+        this.mainActivity = mainActivity;
     }
 
     @Nullable
@@ -116,6 +119,7 @@ public class CreateTeamEvent extends Fragment {
         desc2Str = desc2.getEditText().getText().toString();
         TeamEvent teamEvent = new TeamEvent(titleStr,desc1Str,desc2Str,currentImage1,currentImage2);
         cacheManager.teamAdd(teamEvent);
+        mainActivity.update(teamEvent);
         Toast.makeText(getContext(),getString(R.string.saved),Toast.LENGTH_LONG).show();
     }
 

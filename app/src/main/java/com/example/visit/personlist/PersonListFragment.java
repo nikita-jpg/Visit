@@ -42,9 +42,9 @@ public class PersonListFragment extends Fragment {
         return rootView;
     }
 
-    public void update()
+    public void update(Person person)
     {
-        rvAdapterPerson.notifyDataSetChanged();
+        rvAdapterPerson.add(person);
     }
 
     public void Gone()
