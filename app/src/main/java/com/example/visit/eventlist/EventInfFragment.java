@@ -10,11 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.visit.CheckInputInf;
 import com.example.visit.R;
@@ -24,6 +26,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 import static android.content.ContentValues.TAG;
@@ -33,7 +36,9 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
     private CacheManager cacheManager;
     private RVAdapterTeam rvAdapterTeam;
     private Button buttonEdit;
+    private ImageButton buttonNextPerson, buttonPrevPerson;
     private Uri uri;
+    private List<TeamEvent> teamEvents;
     private TeamEvent teamEvent;
     private Context context;
     private ImageView imgFir, imgSec;
@@ -43,12 +48,17 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
     private boolean clickable = false;
     private final int PICK_IMAGE_1 = 1;
     private final int PICK_IMAGE_2 = 2;
+    private int position;
 
     public EventInfFragment(CacheManager cacheManager, TeamEvent teamEvent, Context context, RVAdapterTeam rvAdapterTeam) {
         this.cacheManager = cacheManager;
         this.teamEvent = teamEvent;
         this.context = context;
         this.rvAdapterTeam = rvAdapterTeam;
+    }
+
+    public void setTeamEvents(List<TeamEvent> teamEvents) {
+        this.teamEvents = teamEvents;
     }
 
     @Nullable
@@ -61,11 +71,44 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
         desc1 = v.findViewById(R.id.event_inf_edit_1);
         desc2 = v.findViewById(R.id.event_inf_edit_2);
 
+        final EventInfFragment thisEventInfFragment = this;
+
         title.getEditText().setText(teamEvent.getTitle());
         desc1.getEditText().setText(teamEvent.getDesc1());
         desc2.getEditText().setText(teamEvent.getDesc2());
 
         buttonEdit = v.findViewById(R.id.event_inf_btn);
+        buttonNextPerson = v.findViewById(R.id.nextPerson);
+        buttonPrevPerson = v.findViewById(R.id.prevPerson);
+
+        position = teamEvents.indexOf(teamEvent);
+
+        buttonNextPerson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (position + 1 >= teamEvents.size()) {
+                    position = -1;
+                }
+                EventInfFragment nextEventInfFragment = new EventInfFragment(cacheManager, teamEvents.get(position + 1), context, rvAdapterTeam);
+                nextEventInfFragment.setTeamEvents(teamEvents);
+                nextEventInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
+                thisEventInfFragment.dismiss();
+            }
+        });
+
+        buttonPrevPerson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (position - 1 < 0) {
+                    position = teamEvents.size();
+                }
+
+                EventInfFragment nextEventInfFragment = new EventInfFragment(cacheManager, teamEvents.get(position - 1), context, rvAdapterTeam);
+                nextEventInfFragment.setTeamEvents(teamEvents);
+                nextEventInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
+                thisEventInfFragment.dismiss();
+            }
+        });
 
         //Грузим фотку
         ContentResolver cr = context.getContentResolver();

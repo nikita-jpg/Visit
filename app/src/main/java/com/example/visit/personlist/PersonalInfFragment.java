@@ -117,24 +117,26 @@ public class PersonalInfFragment extends DialogFragment {
         buttonNextPerson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (position + 1 < persons.size()) {
-                    PersonalInfFragment nextPersonalInfFragment = new PersonalInfFragment(context, persons.get(position + 1), cacheManager, position + 1);
-                    nextPersonalInfFragment.setPersons(persons);
-                    nextPersonalInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
-                    thisPersonalInfFragment.dismiss();
+                if (position + 1 >= persons.size()) {
+                    position = -1;
                 }
+                PersonalInfFragment nextPersonalInfFragment = new PersonalInfFragment(context, persons.get(position + 1), cacheManager, position + 1);
+                nextPersonalInfFragment.setPersons(persons);
+                nextPersonalInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
+                thisPersonalInfFragment.dismiss();
             }
         });
 
         buttonPrevPerson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (position - 1 >= 0) {
-                    PersonalInfFragment nextPersonalInfFragment = new PersonalInfFragment(context, persons.get(position - 1), cacheManager, position - 1);
-                    nextPersonalInfFragment.setPersons(persons);
-                    nextPersonalInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
-                    thisPersonalInfFragment.dismiss();
+                if (position - 1 < 0) {
+                    position = persons.size();
                 }
+                PersonalInfFragment nextPersonalInfFragment = new PersonalInfFragment(context, persons.get(position - 1), cacheManager, position - 1);
+                nextPersonalInfFragment.setPersons(persons);
+                nextPersonalInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
+                thisPersonalInfFragment.dismiss();
             }
         });
 

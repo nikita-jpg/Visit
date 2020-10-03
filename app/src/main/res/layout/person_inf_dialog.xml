@@ -24,8 +24,8 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <include
-            android:id="@+id/include_fragment_edit"
-            layout="@layout/fragment_edit"
+            android:id="@+id/include_fragment_edit_person"
+            layout="@layout/fragment_edit_person"
             app:layout_constraintTop_toBottomOf="@+id/prevPerson"/>
 
         <ImageButton
@@ -37,7 +37,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/include_fragment_edit"
+            app:layout_constraintTop_toBottomOf="@+id/include_fragment_edit_person"
             android:contentDescription="next person" />
 
 

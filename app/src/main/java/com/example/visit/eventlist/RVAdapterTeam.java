@@ -70,6 +70,7 @@ public class RVAdapterTeam extends RecyclerView.Adapter<RVAdapterTeam.TeamViewHo
             public void onClick(View v) {
                 EventInfFragment eventInfFragment = new EventInfFragment(cacheManager,teamEvents.get(position),context,RVAdapterTeam.this);
                 eventInfFragment.setTeamEvent(teamEvents.get(position));
+                eventInfFragment.setTeamEvents(teamEvents);
                 eventInfFragment.show(((AppCompatActivity) context).getSupportFragmentManager(), "addDialog");
             }
         });

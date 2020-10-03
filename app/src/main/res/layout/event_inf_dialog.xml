@@ -6,113 +6,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     android:background="@color/colorPrimaryDark">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/event_inf_photo_1"
+        <ImageButton
+            android:id="@+id/prevPerson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:src="@xml/ic_keyboard_arrow_up_white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.026"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:contentDescription="@string/previous_person" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/event_inf_edit_1"
-            style="@style/TextLabel"
-            android:hint="@string/event_description"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/event_inf_photo_1"
-            app:layout_constraintVertical_bias="0.039"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:startIconDrawable="@xml/ic_info">
+        <include
+            android:id="@+id/include_fragment_edit_event"
+            layout="@layout/fragment_edit_event"
+            app:layout_constraintTop_toBottomOf="@+id/prevPerson"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minLines="5"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <ImageView
-            android:id="@+id/event_inf_photo_2"
+        <ImageButton
+            android:id="@+id/nextPerson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            app:layout_constraintTop_toBottomOf="@+id/event_inf_edit_1"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:src="@xml/ic_keyboard_arrow_down_white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.026"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/event_inf_edit_2"
-            style="@style/TextLabel"
-            android:hint="@string/event_description"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/event_inf_photo_2"
-            app:layout_constraintVertical_bias="0.039"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:startIconDrawable="@xml/ic_info">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minLines="5"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/event_inf_title"
-            style="@style/TextLabel"
-            android:hint="@string/event_title"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/event_inf_edit_2"
-            app:layout_constraintVertical_bias="0.039"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:startIconDrawable="@xml/ic_project_icon">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minLines="5"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/event_inf_btn"
-            style="@style/styleBtn"
-            android:layout_marginTop="36dp"
-            android:text="Редактировать"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/event_inf_title" />
-
-
+            app:layout_constraintTop_toBottomOf="@+id/include_fragment_edit_event"
+            android:contentDescription="@string/next_person" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -59,5 +59,7 @@
     <string name="test_3">sdsdsd</string>
     <string name="test_4">Тесfт_3</string>
     <string name="test_5">Тесfт_4</string>
+    <string name="next_person">next person</string>
+    <string name="previous_person">previous person</string>
 
 </resources>
