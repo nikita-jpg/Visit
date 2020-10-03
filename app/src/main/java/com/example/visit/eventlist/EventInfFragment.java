@@ -1,8 +1,10 @@
 package com.example.visit.eventlist;
 
+import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -212,7 +214,14 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
         this.teamEvent = teamEvent;
     }
 
-
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        Dialog dialog = super.onCreateDialog(savedInstanceState);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color
+                .TRANSPARENT));
+        return dialog;
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {

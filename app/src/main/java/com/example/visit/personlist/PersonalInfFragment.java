@@ -1,9 +1,11 @@
 
 package com.example.visit.personlist;
 
+import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +17,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
@@ -223,6 +227,15 @@ public class PersonalInfFragment extends DialogFragment {
         for (int i = 0; i < fields.length; i++) {
             fields[i].getEditText().setFocusable(false);
         }
+    }
+
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        Dialog dialog = super.onCreateDialog(savedInstanceState);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color
+                .TRANSPARENT));
+        return dialog;
     }
 
     @Override
