@@ -97,7 +97,7 @@ public class PersonalInfFragment extends DialogFragment {
 
         buttonEdit = v.findViewById(R.id.editBtnShow);
         buttonClose = v.findViewById(R.id.cancelBtn);
-        buttonDelete = v.findViewById(R.id.deleteBtn);
+        buttonDelete = v.findViewById(R.id.event_inf_btn_delete);
         buttonNextPerson = v.findViewById(R.id.nextPerson);
         buttonPrevPerson = v.findViewById(R.id.prevPerson);
         avatar = v.findViewById(R.id.avatarShow);
@@ -155,15 +155,15 @@ public class PersonalInfFragment extends DialogFragment {
                 }
                 AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom));
                 builder.setCancelable(true);
-                builder.setTitle("Есть несохранённые изменения");
-                builder.setMessage("Выйти без сохранения?");
-                builder.setPositiveButton("Да", new DialogInterface.OnClickListener() { // Кнопка ОК
+                builder.setTitle(R.string.exitWithoutSave);
+                builder.setMessage(R.string.exitWithoutSaveMess);
+                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() { // Кнопка ОК
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dismiss();
                     }
                 });
-                builder.setNegativeButton("Нет", null);
+                builder.setNegativeButton(R.string.no, null);
                 AlertDialog dialog = builder.create();
                 dialog.show();
             }
@@ -203,12 +203,12 @@ public class PersonalInfFragment extends DialogFragment {
                     if (edit()) {
                         offClickable();
                         clickable = false;
-                        buttonEdit.setText("Редактировать");
+                        buttonEdit.setText(R.string.edit);
                     }
                 }
                 else {
                     onClickable();
-                    buttonEdit.setText("Сохранить");
+                    buttonEdit.setText(R.string.save);
                     clickable = true;
                 }
             }
@@ -304,8 +304,7 @@ public class PersonalInfFragment extends DialogFragment {
                     try {
                         avatar.setImageBitmap(android.provider.MediaStore.Images.Media.getBitmap(cr, uri));
                     } catch (IOException e) {
-                        Toast.makeText(getContext(), "Ошибка загрузки", Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, "Ошибка загрузки", e);
+                        Toast.makeText(getContext(), R.string.expDownload, Toast.LENGTH_SHORT).show();
                     }
                 }
         }

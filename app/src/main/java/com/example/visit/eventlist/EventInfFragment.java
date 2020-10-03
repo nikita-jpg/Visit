@@ -195,7 +195,7 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom));
-                builder.setMessage("Действительно ли вы хотите удалить данный профиль?");
+                builder.setMessage(R.string.exitAfterDeletePers);
 
                 DialogInterface.OnClickListener positiveClickListener = new DialogInterface.OnClickListener(){
                     @Override
@@ -207,8 +207,8 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
                     }
                 };
 
-                builder.setPositiveButton("Да", positiveClickListener);
-                builder.setNegativeButton("Нет", null);
+                builder.setPositiveButton(R.string.yes, positiveClickListener);
+                builder.setNegativeButton(R.string.no, null);
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
             }
@@ -251,9 +251,9 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
         imgSec.setFocusable(false);
         imgSec.setClickable(false);
 
-        title.getEditText().setFocusableInTouchMode(false);
-        desc1.getEditText().setFocusableInTouchMode(false);
-        desc2.getEditText().setFocusableInTouchMode(false);
+        title.getEditText().setFocusable(false);
+        desc1.getEditText().setFocusable(false);
+        desc2.getEditText().setFocusable(false);
 
     }
 

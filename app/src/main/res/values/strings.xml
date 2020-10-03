@@ -14,7 +14,8 @@
     <string name="cancel">Закрыть</string>
     <string name="exitWithoutSave">Есть несохранённые изменения</string>
     <string name="exitWithoutSaveMess">Выйти без сохранения?</string>
-    <string name="exitAfterDelete">Вы уверены,что хотите удалить проект?</string>
+    <string name="exitAfterDeleteEvent">Вы уверены,что хотите удалить проект?</string>
+    <string name="exitAfterDeletePers">Вы уверены,что хотите удалить профиль?</string>
 
     //Событие команды
     <string name="event_description">Описание</string>
@@ -55,6 +56,7 @@
     <string name="expPost">Вы не должность проффессию сотрудника</string>
     <string name="expLoadImage">Ошибка загрузки изображения</string>
     <string name="expTitle">Вы не ввели название</string>
+    <string name="expDownload">Ошибка загрузки</string>
 
     //Префиксы
     <string name="prefVK">https://vk.com/</string>
