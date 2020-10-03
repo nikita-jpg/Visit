@@ -25,6 +25,7 @@ import com.example.visit.R;
 import com.example.visit.TeamEvent;
 import com.example.visit.сache.CacheManager;
 import com.google.android.material.textfield.TextInputLayout;
+import com.jackandphantom.circularimageview.RoundedImage;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -43,7 +44,7 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
     private List<TeamEvent> teamEvents;
     private TeamEvent teamEvent;
     private Context context;
-    private ImageView imgFir, imgSec;
+    private RoundedImage imgFir, imgSec;
     private TextInputLayout title,desc1,desc2;
     private String curImg1 = "";
     private String curImg2 = "";
