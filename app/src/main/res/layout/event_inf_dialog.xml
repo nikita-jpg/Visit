@@ -8,6 +8,7 @@
 
     <ImageButton
         android:id="@+id/prevEvent"
+        android:padding="5dp"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:backgroundTint="@color/colorTransparent"
@@ -33,6 +34,7 @@
 
     <ImageButton
         android:id="@+id/nextEvent"
+        android:padding="5dp"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:backgroundTint="@color/colorTransparent"
