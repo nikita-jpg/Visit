@@ -1,13 +1,16 @@
 package com.example.visit.eventlist;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +41,6 @@ import static com.example.visit.createperson.Contacts.check;
 public class EventInfFragment extends androidx.fragment.app.DialogFragment {
     private CacheManager cacheManager;
     private RVAdapterTeam rvAdapterTeam;
-    private Button buttonEdit;
     private ImageButton buttonNextEvent, buttonPrevEvent;
     private Uri uri;
     private List<TeamEvent> teamEvents;
@@ -52,6 +54,7 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
     private final int PICK_IMAGE_1 = 1;
     private final int PICK_IMAGE_2 = 2;
     private int position;
+    private Button cancel,buttonEdit,delete;
 
     public EventInfFragment(CacheManager cacheManager, TeamEvent teamEvent, Context context, RVAdapterTeam rvAdapterTeam) {
         this.cacheManager = cacheManager;
@@ -73,6 +76,8 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
         imgSec = v.findViewById(R.id.event_inf_photo_2);
         desc1 = v.findViewById(R.id.event_inf_edit_1);
         desc2 = v.findViewById(R.id.event_inf_edit_2);
+        cancel = v.findViewById(R.id.event_inf_btn_cancel);
+        delete = v.findViewById(R.id.event_inf_btn_delete);
 
         final EventInfFragment thisEventInfFragment = this;
 
@@ -159,6 +164,58 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
                     buttonEdit.setText("Сохранить");
                     clickable = true;
                 }
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!clickable) {
+                    dismiss();
+                    return;
+                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom));
+                builder.setCancelable(true);
+                builder.setTitle(R.string.exitWithoutSave);
+                builder.setMessage(R.string.exitWithoutSaveMess);
+                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() { // Кнопка ОК
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dismiss();
+                    }
+                });
+                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom));
+                builder.setMessage("Действительно ли вы хотите удалить данный профиль?");
+
+                DialogInterface.OnClickListener positiveClickListener = new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        teamEvents.remove(teamEvent);
+                        cacheManager.teamDelete(teamEvent);
+                        rvAdapterTeam.notifyDataSetChanged();
+                        dismiss();
+                    }
+                };
+
+                builder.setPositiveButton("Да", positiveClickListener);
+                builder.setNegativeButton("Нет", null);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
 

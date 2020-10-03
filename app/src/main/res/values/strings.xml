@@ -9,7 +9,12 @@
     <string name="saved">Сохранено</string>
     <string name="photo">Нажмите для выбора</string>
     <string name="delete">Удалить</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
     <string name="cancel">Закрыть</string>
+    <string name="exitWithoutSave">Есть несохранённые изменения</string>
+    <string name="exitWithoutSaveMess">Выйти без сохранения?</string>
+    <string name="exitAfterDelete">Вы уверены,что хотите удалить проект?</string>
 
 
     //Событие команды

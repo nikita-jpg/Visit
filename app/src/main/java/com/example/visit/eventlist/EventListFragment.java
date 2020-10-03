@@ -1,10 +1,13 @@
 package com.example.visit.eventlist;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,6 +28,7 @@ public class EventListFragment extends Fragment {
     private CacheManager cacheManager;
     private RVAdapterTeam rvAdapterPerson;
 
+
     public EventListFragment(CacheManager cacheManager)
     {
         this.cacheManager = cacheManager;
@@ -35,6 +39,7 @@ public class EventListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = (RecyclerView) inflater.inflate(R.layout.fragment_menu_event,container,false);
 
+
         GridLayoutManager linearLayoutManager = new GridLayoutManager(getContext(),2);
         linearLayoutManager.setInitialPrefetchItemCount(2);
         rootView.setLayoutManager(linearLayoutManager);
@@ -43,6 +48,8 @@ public class EventListFragment extends Fragment {
         rvAdapterPerson = new RVAdapterTeam(events,getContext(), cacheManager);
         rootView.setAdapter(rvAdapterPerson);
         Gone();
+
+
 
         return rootView;
     }
