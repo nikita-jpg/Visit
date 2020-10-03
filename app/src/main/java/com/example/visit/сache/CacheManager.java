@@ -99,6 +99,10 @@ public class CacheManager
         TeamEvent event = textElementDao.teamGetById(id);
         return event;
     }
+    public void teamDelete(TeamEvent teamEvent)
+    {
+        textElementDao.delete(teamEvent);
+    }
     public long teamGetNumberOfRecords()
     {
         return textElementDao.teamGetNumberOfRecords();
