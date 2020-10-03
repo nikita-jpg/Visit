@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
+
+    <ImageButton
+        android:id="@+id/prevEvent"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/colorTransparent"
+        android:src="@drawable/ic_keyboard_arrow_left_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/previous_event" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/corners">
+
+        <include
+            android:id="@+id/include_fragment_edit_event"
+            layout="@layout/fragment_edit_event"
+            app:layout_constraintTop_toBottomOf="parent"/>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ImageButton
+        android:id="@+id/nextEvent"
+        android:padding="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/colorTransparent"
+        android:src="@drawable/ic_keyboard_arrow_right_black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include_fragment_edit_event"
+        android:contentDescription="@string/next_event" />
+
+
+
+</LinearLayout>

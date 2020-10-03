@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_create"
+        style="@style/BackgroundContainer"
+        android:scrollbars="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/event_desc_1"
+            style="@style/TextLabel"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="@string/name"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_photo_view"
+            app:startIconDrawable="@xml/contact_icon">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/postCreate"
+            style="@style/TextLabel"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="@string/profession"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/event_desc_1"
+            app:startIconDrawable="@xml/post_icon">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="4"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_describe"
+            style="@style/styleBtn"
+            android:text="О себе"
+            android:stateListAnimator="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/postCreate"
+            app:layout_constraintTop_toBottomOf="@+id/postCreate"
+            app:layout_constraintVertical_bias="0.351" />
+
+        <com.jackandphantom.circularimageview.RoundedImage
+            android:id="@+id/add_photo_view"
+            android:layout_width="255dp"
+            android:layout_height="255dp"
+            android:src="@drawable/default_avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.033"
+            app:rounded_radius="50" />
+
+        <Button
+            android:id="@+id/btn_contact"
+            style="@style/styleBtn"
+            android:text="Контакты"
+            android:stateListAnimator="@null"
+            app:layout_constraintEnd_toEndOf="@+id/postCreate"
+            app:layout_constraintTop_toTopOf="@+id/btn_describe" />
+
+        <Button
+            android:id="@+id/save_button"
+            style="@style/styleBtn"
+            android:layout_marginTop="10dp"
+            android:text="Сохранить"
+            android:stateListAnimator="@null"
+            app:layout_constraintEnd_toEndOf="@+id/btn_contact"
+            app:layout_constraintStart_toStartOf="@+id/btn_describe"
+            app:layout_constraintTop_toBottomOf="@+id/btn_describe" />
+
+        <FrameLayout
+            android:id="@+id/forDarkBack"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorAbsBlack"
+            android:clickable="false"
+            app:layout_anchorGravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include layout="@layout/bootom_sheet" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

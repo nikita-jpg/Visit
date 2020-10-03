@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">Visit</string>
+    <string name="view_user">Просмотр</string>
+    <string name="menu">Люди</string>
+    <string name="events">Проекты</string>
+    <string name="create_person">Создать профиль</string>
+    <string name="create_team_event">Создать проект</string>
+    <string name="save">Сохранить</string>
+    <string name="saved">Сохранено</string>
+    <string name="photo">Нажмите для выбора</string>
+    <string name="delete">Удалить</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="cancel">Закрыть</string>
+    <string name="exitWithoutSave">Есть несохранённые изменения</string>
+    <string name="exitWithoutSaveMess">Выйти без сохранения?</string>
+    <string name="exitAfterDeleteEvent">Вы уверены,что хотите удалить проект?</string>
+    <string name="exitAfterDeletePers">Вы уверены,что хотите удалить профиль?</string>
+
+    //Событие команды
+    <string name="event_description">Описание</string>
+    <string name="event_title">Название проекта</string>
+
+
+    //Профиль
+    <string name="name">ФИО</string>
+    <string name="profession">Профессия</string>
+
+    //Контакты
+    <string name="email_colon">email:</string>
+    <string name="vk_colon">VK:</string>
+    <string name="discord_colon">discord:</string>
+    <string name="number_colon">number:</string>
+    <string name="git_colon">git:</string>
+
+    //Контакты c двоеточием
+    <string name="email">email</string>
+    <string name="vk">VK</string>
+    <string name="discord">discord</string>
+    <string name="number">number</string>
+    <string name="git">git</string>
+
+    //О себе
+    <string name="description">Напишите пару слов о себе</string>
+
+    //Ошибки
+    <string name="exceptionContact">Вы ошиблись или не заполнили все поля в разделе контакты</string>
+    <string name="expVK">Вы указали неправильный id пользователя вк</string>
+    <string name="expEmail">Вы указали неправильный email</string>
+    <string name="expNumber">Вы указали неверный номер телефона</string>
+    <string name="expDiscord">Вы указали неверный ник в дискорде</string>
+    <string name="expName">Вы указали неверное имя</string>
+    <string name="expGit">Вы указали неверное имя на git</string>
+    <string name="expDescription">Вы оставили пустым поле "О себе"</string>
+    <string name="expNotAvatar">Вы не добавили аватар</string>
+    <string name="expPost">Вы не должность проффессию сотрудника</string>
+    <string name="expLoadImage">Ошибка загрузки изображения</string>
+    <string name="expTitle">Вы не ввели название</string>
+    <string name="expDownload">Ошибка загрузки</string>
+
+    //Префиксы
+    <string name="prefVK">https://vk.com/</string>
+    <string name="prefGit">https://github.com/</string>
+
+    //Тесты
+    <string name="test_1">Тест_1</string>
+    <string name="test_2">Тест_2</string>
+    <string name="test_3">sdsdsd</string>
+    <string name="test_4">Тесfт_3</string>
+    <string name="test_5">Тесfт_4</string>
+    <string name="previous_person">previous person</string>
+    <string name="next_person">next person</string>
+    <string name="next_event">next event</string>
+    <string name="previous_event">previous event</string>
+    <string name="edit">Редактировать</string>
+
+</resources>

@@ -1,0 +1,62 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorLightAccent</item>
+        <item name="android:editTextColor">@color/colorLightAccent</item>
+    </style>
+
+    <style name="styleBtn" parent="Widget.MaterialComponents.Button">
+        <item name="android:minWidth">58pt</item>
+        <item name="android:minHeight">22pt</item>
+        <item name="backgroundTint">@color/colorRed</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="strokeColor">@color/colorRed</item>
+        <item name="rippleColor">@color/colorRed</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+
+    </style>
+
+
+    <style name="TextLabel" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/colorDarkAccent</item>
+        <item name="hintTextColor">@color/colorLightAccent</item>
+        <item name="android:textColorHint">@color/colorLightAccent</item>
+        <item name="boxBackgroundColor">@color/colorPrimaryDark</item>
+        <item name="prefixTextColor">@color/colorLightAccent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:minWidth">280dp</item>
+        <item name="android:layout_height">59dp</item>
+        <item name="android:singleLine">true</item>
+
+    </style>
+
+    <style name="BottomNawView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="backgroundTint">@color/colorBlack</item>
+        <item name="android:background">@color/colorBlack</item>
+        <item name="tint">@color/colorRed</item>
+        <item name="itemTextColor">@color/bnv_tab_item_foreground</item>
+    </style>
+
+    <style name="MyCounterText" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@android:color/holo_orange_dark</item>
+    </style>
+
+    <style name="BackgroundContainer">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="AlertDialogCustom" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="backgroundTint">@color/colorBlack</item>
+        <item name="android:background">@color/colorBlack</item>
+        <item name="colorAccent">@color/colorWhite</item>
+        <item name="android:textColorPrimary">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+</resources>

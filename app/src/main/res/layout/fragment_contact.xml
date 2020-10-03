@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/BackgroundContainer"
+    android:background="@drawable/bottom_shhet">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/createVK"
+        style="@style/TextLabel"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/vk"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:prefixText="@string/prefVK"
+        app:startIconDrawable="@xml/vk_icon_logo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/createNumber"
+        style="@style/TextLabel"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/number"
+        app:counterEnabled="true"
+        app:counterMaxLength="11"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createVK"
+        app:startIconDrawable="@xml/phone_number_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="phone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/createEmail"
+        style="@style/TextLabel"
+        android:layout_width="300dp"
+        android:layout_height="59dp"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createNumber"
+        app:startIconDrawable="@xml/email_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/createDiscord"
+        style="@style/TextLabel"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/discord"
+        app:counterEnabled="true"
+        app:counterMaxLength="4"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createEmail"
+        app:prefixText="#"
+        app:startIconDrawable="@xml/discord_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="phone" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/createGit"
+        style="@style/TextLabel"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/git"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createDiscord"
+        app:prefixText="@string/prefGit"
+        app:startIconDrawable="@xml/github_icon_logo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/createBtn"
+        style="@style/styleBtn"
+        android:layout_marginTop="28dp"
+        android:text="@string/save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createGit" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

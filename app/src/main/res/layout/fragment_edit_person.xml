@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_edit"
+    style="@style/BackgroundContainer"
+    android:background="@drawable/bottom_shhet"
+    android:padding="10dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".MainActivity">
+
+    <com.jackandphantom.circularimageview.CircleImage
+        android:id="@+id/avatarShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.026"
+        tools:srcCompat="@tools:sample/avatars" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameShow"
+        style="@style/TextLabel"
+        android:hint="@string/name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avatarShow"
+        app:layout_constraintVertical_bias="0.039"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:startIconDrawable="@xml/contact_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/professionShow"
+        style="@style/TextLabel"
+        android:layout_marginTop="12dp"
+        android:hint="@string/profession"
+        app:layout_constraintStart_toStartOf="@+id/nameShow"
+        app:layout_constraintTop_toBottomOf="@+id/nameShow"
+        app:startIconDrawable="@xml/vk_icon_logo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/numberShow"
+        style="@style/TextLabel"
+        android:layout_marginTop="12dp"
+        android:hint="@string/number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/professionShow"
+        app:startIconDrawable="@xml/phone_number_icon">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailShow"
+        style="@style/TextLabel"
+        android:layout_marginTop="12dp"
+        android:hint="@string/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numberShow"
+        app:startIconDrawable="@xml/email_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/vkShow"
+        style="@style/TextLabel"
+        android:layout_marginTop="12dp"
+        android:hint="@string/vk"
+        app:layout_constraintStart_toStartOf="@+id/emailShow"
+        app:layout_constraintTop_toBottomOf="@+id/emailShow"
+        app:startIconDrawable="@xml/vk_icon_logo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/discordShow"
+        style="@style/TextLabel"
+        android:layout_marginTop="12dp"
+        android:hint="@string/discord"
+        app:layout_constraintStart_toStartOf="@+id/vkShow"
+        app:layout_constraintTop_toBottomOf="@+id/vkShow"
+        app:startIconDrawable="@xml/discord_icon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/gitShow"
+        style="@style/TextLabel"
+        android:layout_marginTop="12dp"
+        android:hint="@string/git"
+        app:layout_constraintStart_toStartOf="@+id/discordShow"
+        app:layout_constraintTop_toBottomOf="@+id/discordShow"
+        app:startIconDrawable="@xml/github_icon_logo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/descriptionShow"
+        style="@style/TextLabel"
+        android:layout_height="100dp"
+        android:layout_marginTop="12dp"
+        android:hint="О себе"
+        app:layout_constraintStart_toStartOf="@+id/gitShow"
+        app:layout_constraintTop_toBottomOf="@+id/gitShow">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/editBtnShow"
+        style="@style/styleBtn"
+        android:layout_width="147dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
+        android:text="@string/edit"
+        app:iconPadding="0dp"
+        app:layout_constraintEnd_toEndOf="@+id/cancelBtn"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/event_inf_btn_delete"
+        app:layout_constraintTop_toBottomOf="@+id/event_inf_btn_delete" />
+
+    <Button
+        android:id="@+id/cancelBtn"
+        style="@style/styleBtn"
+        android:layout_width="87dp"
+        android:layout_height="30dp"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
+        android:text="@string/cancel"
+        app:iconPadding="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/event_inf_btn_delete"
+        app:layout_constraintTop_toTopOf="@+id/event_inf_btn_delete" />
+
+    <Button
+        android:id="@+id/event_inf_btn_delete"
+        style="@style/styleBtn"
+        android:layout_width="87dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
+        android:text="@string/delete"
+        app:iconPadding="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/cancelBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionShow" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

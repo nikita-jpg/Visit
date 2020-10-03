@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/test_1"
+        android:icon="@drawable/menu"
+        android:title="@string/test_1" />
+    <item
+        android:id="@+id/test_2"
+        android:icon="@drawable/add_user"
+        android:title="@string/test_2" />
+    <item
+        android:id="@+id/test_3"
+        android:icon="@drawable/menu"
+        android:title="@string/test_3" />
+    <item
+        android:id="@+id/test_4"
+        android:icon="@drawable/add_user"
+        android:title="@string/test_4" />
+    <item
+        android:id="@+id/test_5"
+        android:icon="@drawable/menu"
+        android:title="@string/test_5" />
+</menu>
