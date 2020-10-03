@@ -184,12 +184,7 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
                         dismiss();
                     }
                 });
-                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
+                builder.setNegativeButton(R.string.no, null);
                 AlertDialog dialog = builder.create();
                 dialog.show();
             }
