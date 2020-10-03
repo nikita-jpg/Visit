@@ -1,14 +1,17 @@
 
 package com.example.visit.personlist;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +43,7 @@ import static com.example.visit.createperson.Contacts.check;
 
 public class PersonalInfFragment extends DialogFragment {
     private CacheManager cacheManager;
-    private Button buttonEdit;
+    private Button buttonEdit, buttonClose, buttonDelete;
     private ImageButton buttonNextPerson, buttonPrevPerson;
     private int[] fieldsIDs = {R.id.nameShow, R.id.professionShow, R.id.numberShow, R.id.emailShow,
             R.id.vkShow, R.id.discordShow, R.id.gitShow, R.id.descriptionShow};
@@ -93,6 +96,8 @@ public class PersonalInfFragment extends DialogFragment {
         fields[7].getEditText().setText(person.getDescription());
 
         buttonEdit = v.findViewById(R.id.editBtnShow);
+        buttonClose = v.findViewById(R.id.cancelBtn);
+        buttonDelete = v.findViewById(R.id.deleteBtn);
         buttonNextPerson = v.findViewById(R.id.nextPerson);
         buttonPrevPerson = v.findViewById(R.id.prevPerson);
         avatar = v.findViewById(R.id.avatarShow);
@@ -116,6 +121,53 @@ public class PersonalInfFragment extends DialogFragment {
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, PICK_IMAGE);
             }
+        });
+
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom));
+                builder.setMessage("Действительно ли вы хотите удалить данный профиль?");
+                builder.setTitle("Удаление профиля");
+                DialogInterface.OnClickListener positiveClickListener = new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        persons.remove(person);
+                        cacheManager.personDelete(person);
+                        rvAdapterPerson.notifyDataSetChanged();
+                        thisPersonalInfFragment.dismiss();
+                    }
+                };
+
+                builder.setPositiveButton("Да", positiveClickListener);
+                builder.setNegativeButton("Нет", null);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
+
+        buttonClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!clickable) {
+                    dismiss();
+                    return;
+                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom));
+                builder.setCancelable(true);
+                builder.setTitle("Есть несохранённые изменения");
+                builder.setMessage("Выйти без сохранения?");
+                builder.setPositiveButton("Да", new DialogInterface.OnClickListener() { // Кнопка ОК
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dismiss();
+                    }
+                });
+                builder.setNegativeButton("Нет", null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+
         });
 
         buttonNextPerson.setOnClickListener(new View.OnClickListener() {

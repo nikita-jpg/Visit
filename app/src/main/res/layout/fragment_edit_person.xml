@@ -173,7 +173,7 @@
         android:paddingTop="0dp"
         android:paddingRight="0dp"
         android:paddingBottom="0dp"
-        android:text="Редактировать"
+        android:text="@string/edit"
         app:iconPadding="0dp"
         app:layout_constraintEnd_toEndOf="@+id/cancelBtn"
         app:layout_constraintHorizontal_bias="0.496"

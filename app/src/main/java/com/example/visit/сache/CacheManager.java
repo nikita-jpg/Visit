@@ -56,6 +56,9 @@ public class CacheManager
     {
         textElementDao.update(person);
     }
+    public void personDelete(Person person) {
+        textElementDao.delete(person);
+    }
     public Person PersonGetTextById(long id)
     {
         Person person = textElementDao.personGetById(id);

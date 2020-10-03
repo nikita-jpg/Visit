@@ -19,8 +19,13 @@
 
     </style>
 
-    <style name="MyDialogTheme" parent="Theme.MaterialComponents.Dialog.Alert">
+    <style name="AlertDialogCustom" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="backgroundTint">@color/colorPrimaryDark</item>
         <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorDarkAccent</item>
+        <item name="android:textColorPrimary">@color/colorLightAccent</item>
+        <item name="android:textColor">@color/colorLightAccent</item>
+        <item name="android:textSize">15sp</item>
     </style>
 
     <style name="TextLabel" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
