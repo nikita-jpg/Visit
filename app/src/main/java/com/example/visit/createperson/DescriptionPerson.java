@@ -34,7 +34,7 @@ public class DescriptionPerson extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_description_person,container,false);
+        rootView = inflater.inflate(R.layout.fragment_description,container,false);
         descriptionInputLayout = rootView.findViewById(R.id.description_field);
         btnSave = rootView.findViewById(R.id.save_description_button);
         checkInputInf = new CheckInputInf(getContext());

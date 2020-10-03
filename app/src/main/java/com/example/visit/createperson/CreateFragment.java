@@ -23,8 +23,6 @@ import com.example.visit.CheckInputInf;
 import com.example.visit.MainActivity;
 import com.example.visit.Person;
 import com.example.visit.R;
-import com.example.visit.eventlist.RVAdapterTeam;
-import com.example.visit.personlist.RVAdapterPerson;
 import com.example.visit.сache.CacheManager;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.textfield.TextInputLayout;
@@ -61,7 +59,7 @@ public class CreateFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_create, container, false);
+        rootView = inflater.inflate(R.layout.fragment_create_person, container, false);
         rootView.setVisibility(View.GONE);
 
         init();

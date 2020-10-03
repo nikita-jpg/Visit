@@ -39,7 +39,7 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
     private CacheManager cacheManager;
     private RVAdapterTeam rvAdapterTeam;
     private Button buttonEdit;
-    private ImageButton buttonNextPerson, buttonPrevPerson;
+    private ImageButton buttonNextEvent, buttonPrevEvent;
     private Uri uri;
     private List<TeamEvent> teamEvents;
     private TeamEvent teamEvent;
@@ -81,12 +81,12 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
         desc2.getEditText().setText(teamEvent.getDesc2());
 
         buttonEdit = v.findViewById(R.id.event_inf_btn);
-        buttonNextPerson = v.findViewById(R.id.nextPerson);
-        buttonPrevPerson = v.findViewById(R.id.prevPerson);
+        buttonNextEvent = v.findViewById(R.id.nextEvent);
+        buttonPrevEvent = v.findViewById(R.id.prevEvent);
 
         position = teamEvents.indexOf(teamEvent);
 
-        buttonNextPerson.setOnClickListener(new View.OnClickListener() {
+        buttonNextEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (position + 1 >= teamEvents.size()) {
@@ -99,7 +99,7 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
             }
         });
 
-        buttonPrevPerson.setOnClickListener(new View.OnClickListener() {
+        buttonPrevEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (position - 1 < 0) {
