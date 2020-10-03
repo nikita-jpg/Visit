@@ -8,6 +8,8 @@
     <string name="save">Сохранить</string>
     <string name="saved">Сохранено</string>
     <string name="photo">Нажмите для выбора</string>
+    <string name="delete">Удалить</string>
+    <string name="cancel">Закрыть</string>
 
 
     //Событие команды

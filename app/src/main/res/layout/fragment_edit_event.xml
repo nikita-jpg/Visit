@@ -8,6 +8,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     android:padding="10dp"
+    android:background="@drawable/corners"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -46,7 +47,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <com.jackandphantom.circularimageview.RoundedImage
         android:id="@+id/event_inf_photo_2"
         android:layout_width="wrap_content"
@@ -81,7 +81,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/event_inf_title"
         style="@style/TextLabel"
@@ -103,11 +102,61 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/event_inf_btn"
+        android:id="@+id/event_inf_btn_edit"
         style="@style/styleBtn"
-        android:layout_marginTop="36dp"
+        android:layout_width="147dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
         android:text="Редактировать"
+        app:iconPadding="0dp"
+        app:layout_constraintEnd_toEndOf="@+id/event_inf_btn_cancel"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/event_inf_btn_delete"
+        app:layout_constraintTop_toBottomOf="@+id/event_inf_btn_delete" />
+
+    <Button
+        android:id="@+id/event_inf_btn_cancel"
+        style="@style/styleBtn"
+        android:layout_width="87dp"
+        android:layout_height="25dp"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
+        android:text="@string/cancel"
+        app:iconPadding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/event_inf_btn_delete"
+        app:layout_constraintTop_toTopOf="@+id/event_inf_btn_delete" />
+
+    <Button
+        android:id="@+id/event_inf_btn_delete"
+        style="@style/styleBtn"
+        android:layout_width="87dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="32dp"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
+        android:text="@string/delete"
+        app:iconPadding="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/event_inf_btn_cancel"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/event_inf_title" />
 

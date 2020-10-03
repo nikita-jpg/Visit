@@ -43,4 +43,6 @@
         app:layout_constraintTop_toBottomOf="@+id/include_fragment_edit_event"
         android:contentDescription="@string/next_event" />
 
+
+
 </LinearLayout>

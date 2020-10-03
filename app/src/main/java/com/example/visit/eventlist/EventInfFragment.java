@@ -80,7 +80,7 @@ public class EventInfFragment extends androidx.fragment.app.DialogFragment {
         desc1.getEditText().setText(teamEvent.getDesc1());
         desc2.getEditText().setText(teamEvent.getDesc2());
 
-        buttonEdit = v.findViewById(R.id.event_inf_btn);
+        buttonEdit = v.findViewById(R.id.event_inf_btn_edit);
         buttonNextEvent = v.findViewById(R.id.nextEvent);
         buttonPrevEvent = v.findViewById(R.id.prevEvent);
 
